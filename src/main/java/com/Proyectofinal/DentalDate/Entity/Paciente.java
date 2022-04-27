@@ -27,6 +27,7 @@ public class Paciente {
     
     @OneToOne
     private Odontologo odontologo;
+    
 
     public Paciente() {
     }
@@ -38,6 +39,7 @@ public class Paciente {
         this.email = email;
         this.contraseña = contraseña;
         this.odontologo = odontologo;
+      
     }
 
     public String getId() {
@@ -100,7 +102,7 @@ public class Paciente {
     public String toString() {
         return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", Dni=" + Dni + ", email=" + email + ", contrase\u00f1a=" + contraseña + ", odontologo=" + odontologo + '}';
     }
-    
-    
+
+
     
 }

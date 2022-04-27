@@ -5,24 +5,18 @@
  */
 package com.Proyectofinal.DentalDate.Repository;
 
-import com.Proyectofinal.DentalDate.Entity.Paciente;
 import com.Proyectofinal.DentalDate.Entity.Turno;
-import java.util.Date;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Laura Alvarez
  */
-public interface TurnoRepositorio extends JpaRepository<Paciente,String>{
-    
-    @Query("SELECT t FROM Turnos t WHERE t.fecha = :fecha")
-    public Turno buscarPorFecha(@Param("fecha") Date fecha);
-    
-    
-    
-    
-    
+@Repository
+public interface TurnoRepositorio extends JpaRepository<Turno,String>{
+    @Query("SELECT t FROM Turno t WHERE t.id = :id")
+    public Turno buscarPorId(@Param("id")String id);
 }
