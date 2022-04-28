@@ -6,7 +6,10 @@
 
 package com.Proyectofinal.DentalDate.Entity;
 
+import com.Proyectofinal.DentalDate.Roles.Role;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -21,16 +24,16 @@ public class Odontologo {
     private String id;
     private String nombre;
     private String apellido;
-    private Long matricula;
+    private String matricula;
     private String especialidad;
     
     @ManyToOne
     private Paciente paciente;
-
+    
     public Odontologo() {
     }
 
-    public Odontologo(String nombre, String apellido, Long matricula, String especialidad, Paciente paciente) {
+    public Odontologo(String nombre, String apellido, String matricula, String especialidad, Paciente paciente) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.matricula = matricula;
@@ -54,11 +57,11 @@ public class Odontologo {
         this.apellido = apellido;
     }
 
-    public Long getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(Long matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
@@ -77,6 +80,17 @@ public class Odontologo {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    
+    
 
     @Override
     public String toString() {

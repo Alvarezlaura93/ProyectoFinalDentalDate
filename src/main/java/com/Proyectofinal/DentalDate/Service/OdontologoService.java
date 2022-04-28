@@ -9,30 +9,30 @@ import com.Proyectofinal.DentalDate.Entity.Odontologo;
 import com.Proyectofinal.DentalDate.Repository.OdontologoRepositorio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 /**
  *
  * @author Laura Alvarez
  */
 @Service
-public class OdontologoService implements UserDetailsService {
+public class OdontologoService  {
 
     @Autowired
     private OdontologoRepositorio Odrepositorio;
 
     @Transactional
     //cargo un odontologo
-    public Odontologo Guardar(String nombre, String apellido, Long Matricula, String especialidad) {
+    public Odontologo Guardar(String nombre, String apellido, String Matricula, String especialidad) {
         Odontologo od = new Odontologo();
         od.setNombre(nombre);
         od.setApellido(apellido);
         od.setMatricula(Matricula);
         od.setEspecialidad(especialidad);
+        
+        
 
         return Odrepositorio.save(od);
     }
@@ -56,16 +56,5 @@ public class OdontologoService implements UserDetailsService {
     public List<Odontologo>listaOdontologo(){
      return Odrepositorio.findAll();
 }
-    
-    
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
-    
-    
-    
+
 }

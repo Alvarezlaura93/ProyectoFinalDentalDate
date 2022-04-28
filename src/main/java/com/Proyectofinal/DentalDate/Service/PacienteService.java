@@ -7,14 +7,24 @@ package com.Proyectofinal.DentalDate.Service;
 
 import com.Proyectofinal.DentalDate.Entity.Paciente;
 import com.Proyectofinal.DentalDate.Repository.PacienteRepositorio;
+import com.Proyectofinal.DentalDate.Roles.Role;
+import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+@Service
 public class PacienteService implements UserDetailsService {
 
     @Autowired
@@ -24,12 +34,13 @@ public class PacienteService implements UserDetailsService {
     public Paciente GuardarUsuario(String nombre, String apellido, Long Dni, String email, String contraseña) throws Exception {
         validator(nombre, apellido, Dni, email, contraseña);
         Paciente p = new Paciente();
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
         p.setNombre(nombre);
         p.getApellido();
         p.setDni(Dni);
         p.setEmail(email);
         p.setContraseña(contraseña);
+        p.setRole(Role.USER);
 
         return p;
     }
@@ -38,14 +49,18 @@ public class PacienteService implements UserDetailsService {
     @Transactional
     public Paciente modificarUsuario(String id, String email, String contraseña, String nuevacontraseña) throws Exception {
         validator2(email, contraseña, nuevacontraseña);
-        Paciente p = pacienteRepositorio.getOne(id);
-
+        Paciente p = pacienteRepositorio.getById(id);
+        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+        if (p==null) {
+            throw new Exception("No existe un Paciente con esa ID");
+        }    
         p.setEmail(email);
-        p.setContraseña(contraseña);
-        p.setContraseña(nuevacontraseña);
+        p.setContraseña(enc.encode(contraseña));
 
         return pacienteRepositorio.save(p);
     }
+    
+    
     
      @Transactional
     public Paciente getOne(String id){
@@ -106,8 +121,26 @@ public class PacienteService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+       Paciente p = pacienteRepositorio.buscarPorEmail(email);
+         if (p != null) {
+            List<GrantedAuthority> permisos = new ArrayList<>();
+
+            GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_" + p.getRole());//ROLE_ADMIN O ROLE_USER
+            permisos.add(p1);
+
+            //Esto me permite guardar el OBJETO USUARIO LOG, para luego ser utilizado
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            HttpSession session = attr.getRequest().getSession(true);
+            session.setAttribute("pacientesession", p);
+
+            User user = new User(p.getEmail(),p.getContraseña(), permisos);
+            return user;
+
+        } else {
+            return null;
+        }
+    }
     }
 
-}
+

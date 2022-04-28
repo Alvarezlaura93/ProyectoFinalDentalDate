@@ -6,7 +6,10 @@
 
 package com.Proyectofinal.DentalDate.Entity;
 
+import com.Proyectofinal.DentalDate.Roles.Role;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -27,6 +30,9 @@ public class Paciente {
     
     @OneToOne
     private Odontologo odontologo;
+    
+    @Enumerated(EnumType.STRING)
+    private Role role; 
     
 
     public Paciente() {
@@ -97,6 +103,16 @@ public class Paciente {
     public void setOdontologo(Odontologo odontologo) {
         this.odontologo = odontologo;
     }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+    
+    
 
     @Override
     public String toString() {
