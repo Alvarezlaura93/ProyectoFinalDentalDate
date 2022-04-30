@@ -26,4 +26,8 @@ public interface OdontologoRepositorio extends JpaRepository<Odontologo,String> 
     
     @Query("SELECT o FROM Odontologo o WHERE o.matricula = : matricula")
     public Odontologo buscarPorMatricula(@Param("matricula")String matricula);
+    
+    @Query ("SELECT o  FROM Odontologo o WHERE o.email = : email")
+    public Odontologo buscarPorEmail(@Param("email")String email);
+   
 }

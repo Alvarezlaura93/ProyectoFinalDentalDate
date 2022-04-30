@@ -22,8 +22,9 @@ public class Turno {
     @GenericGenerator( name ="uuid",strategy="uuid2")
     private String id;
     
+     //trabajar con dias
     private Date fecha;
-    //trabajar con dias
+    private String hora;
     //private String hora; "12:30"
     
     @ManyToOne
@@ -56,6 +57,16 @@ public class Turno {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+    
+    
 
     public Odontologo getOdontologo() {
         return odontologo;

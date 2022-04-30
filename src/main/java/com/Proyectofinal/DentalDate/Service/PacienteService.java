@@ -120,7 +120,7 @@ public class PacienteService implements UserDetailsService {
 
     }
 
-    @Override
+    
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
        Paciente p = pacienteRepositorio.buscarPorEmail(email);
          if (p != null) {

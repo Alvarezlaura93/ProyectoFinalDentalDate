@@ -8,15 +8,13 @@ package com.Proyectofinal.DentalDate.Entity;
 
 import com.Proyectofinal.DentalDate.Roles.Role;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Odontologo {
+public class Odontologo extends Usuario {
     
     @Id
     @GeneratedValue(generator = "uuid")
@@ -30,10 +28,13 @@ public class Odontologo {
     @ManyToOne
     private Paciente paciente;
     
+    private Role role;
+    
     public Odontologo() {
     }
 
-    public Odontologo(String nombre, String apellido, String matricula, String especialidad, Paciente paciente) {
+    public Odontologo(String nombre, String apellido,String email, String contraseña, String matricula, String especialidad, Paciente paciente) {
+        super(email,contraseña);
         this.nombre = nombre;
         this.apellido = apellido;
         this.matricula = matricula;
@@ -89,22 +90,12 @@ public class Odontologo {
         this.id = id;
     }
 
-    
-    
-
-    @Override
-    public String toString() {
-        return "Odontologo{" + "nombre=" + nombre + ", apellido=" + apellido + ", matricula=" + matricula + ", especialidad=" + especialidad + ", paciente=" + paciente + '}';
+    public Role getRole() {
+        return role;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
     
 }

@@ -13,13 +13,10 @@ import com.Proyectofinal.DentalDate.Repository.TurnoRepositorio;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TurnoService implements UserDetailsService {
+public class TurnoService  {
     
     @Autowired
     private TurnoRepositorio turno;
@@ -54,17 +51,6 @@ public class TurnoService implements UserDetailsService {
         if(fecha==null|| fecha.before(fecha)){
             throw new Exception("debe ingresar una fecha posterior");
         }
-    }
-    
-    
-    
-    
-    
-    
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

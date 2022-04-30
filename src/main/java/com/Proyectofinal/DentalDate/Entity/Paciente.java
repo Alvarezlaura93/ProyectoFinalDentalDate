@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Paciente {
+public class Paciente extends Usuario {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -25,8 +25,7 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private Long Dni;
-    private String email;
-    private String contraseña;
+ 
     
     @OneToOne
     private Odontologo odontologo;
@@ -36,14 +35,14 @@ public class Paciente {
     
 
     public Paciente() {
+        super();
     }
 
     public Paciente(String nombre, String apellido, Long Dni, String email, String contraseña, Odontologo odontologo) {
+        super(email,contraseña);
         this.nombre = nombre;
         this.apellido = apellido;
         this.Dni = Dni;
-        this.email = email;
-        this.contraseña = contraseña;
         this.odontologo = odontologo;
       
     }
@@ -80,21 +79,6 @@ public class Paciente {
         this.Dni = Dni;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
 
     public Odontologo getOdontologo() {
         return odontologo;
@@ -112,13 +96,7 @@ public class Paciente {
         this.role = role;
     }
     
-    
-
-    @Override
-    public String toString() {
-        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", Dni=" + Dni + ", email=" + email + ", contrase\u00f1a=" + contraseña + ", odontologo=" + odontologo + '}';
-    }
-
+   
 
     
 }
