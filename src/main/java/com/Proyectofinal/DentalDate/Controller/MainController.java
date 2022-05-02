@@ -20,6 +20,6 @@ public class MainController {
         if (login!=null) {
             model.put("exito","Logueado con exito");
         }
-        return "index";
+        return "index.html";
     }
 }
