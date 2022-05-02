@@ -8,28 +8,19 @@ package com.Proyectofinal.DentalDate.Service;
 import com.Proyectofinal.DentalDate.Entity.Odontologo;
 import com.Proyectofinal.DentalDate.Repository.OdontologoRepositorio;
 import com.Proyectofinal.DentalDate.Roles.Role;
-import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+
 
 /**
  *
  * @author Laura Alvarez
  */
 @Service
-public class OdontologoService implements UserDetailsService {
+public class OdontologoService  {
 
     @Autowired
     private OdontologoRepositorio Odrepositorio;
@@ -94,25 +85,4 @@ public class OdontologoService implements UserDetailsService {
 
     }
 
-
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Odontologo o = Odrepositorio.buscarPorEmail(email);
-        if (o != null) {
-            List<GrantedAuthority> permisos = new ArrayList<>();
-
-            GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_" + o.getRole());//ROLE_ADMIN O ROLE_USER
-            permisos.add(p1);
-
-            //Esto me permite guardar el OBJETO USUARIO LOG, para luego ser utilizado
-            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-            HttpSession session = attr.getRequest().getSession(true);
-            session.setAttribute("odontologosession", o);
-
-            User user = new User(o.getEmail(), o.getContraseña(), permisos);
-            return user;
-
-        } else {
-            return null;
-        }
-    }
 }

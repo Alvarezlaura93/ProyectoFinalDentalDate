@@ -6,7 +6,7 @@
 
 package com.Proyectofinal.DentalDate.ConfSeg;
 
-import com.Proyectofinal.DentalDate.Service.PacienteService;
+import com.Proyectofinal.DentalDate.Service.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -22,28 +22,28 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class Configuracion extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private PacienteService pacienteservice;
+    private UsuarioServicio us;
     
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        //le decimos cual es el servicio para auntenticar un cliente
-        auth.userDetailsService(pacienteservice)
-       //luego de que encuentra el usuario le decimos cual es el encoder para comparar contraseñas
+       
+        auth.userDetailsService(us)
+       
             .passwordEncoder(new BCryptPasswordEncoder());
     }
     
      @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll()//cualquier usuario sin estar logueado //puede acceder a estos archivos
-                .and().formLogin()//configuramos el login                                                             
-                        .loginPage("/login") // Donde esta mi login
-                        .loginProcessingUrl("/logincheck")//url que autentica un cliente
-                        .usernameParameter("email") // Con que nombre viajan los datos del logueo
+        http.authorizeRequests().antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll()
+                .and().formLogin()                                                            
+                        .loginPage("/login") 
+                        .loginProcessingUrl("/logincheck")
+                        .usernameParameter("email") 
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/?login").permitAll() // A que URL ingresa si el usuario se autentica con exito
-                .and().logout() // Aca configuro la salida
-                        .logoutUrl("/logout")//sprin security desloguea desde esta url
-                        .logoutSuccessUrl("/login?logout").permitAll()//y nos redirige aca
+                        .defaultSuccessUrl("/?login").permitAll() 
+                .and().logout() 
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout").permitAll()
                 .and().csrf().disable();
     }
     
