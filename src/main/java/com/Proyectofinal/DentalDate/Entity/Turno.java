@@ -7,14 +7,24 @@
 package com.Proyectofinal.DentalDate.Entity;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import org.hibernate.annotations.GenericGenerator;
 
-
+@Entity
 public class Turno {
-
+    
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator( name ="uuid",strategy="uuid2")
+    private String id;
+    
+     //trabajar con dias
     private Date fecha;
-    //trabajar con dias
+    private String hora;
     //private String hora; "12:30"
     
     @ManyToOne
@@ -32,6 +42,14 @@ public class Turno {
         this.paciente = paciente;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Date getFecha() {
         return fecha;
     }
@@ -39,6 +57,16 @@ public class Turno {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+    
+    
 
     public Odontologo getOdontologo() {
         return odontologo;
@@ -58,9 +86,10 @@ public class Turno {
 
     @Override
     public String toString() {
-        return "Turno{" + "fecha=" + fecha + ", odontologo=" + odontologo + ", paciente=" + paciente + '}';
+        return "Turno{" + "id=" + id + ", fecha=" + fecha + ", odontologo=" + odontologo + ", paciente=" + paciente + '}';
     }
-    
+
+   
     
   
     

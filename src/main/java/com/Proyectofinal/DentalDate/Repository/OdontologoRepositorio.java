@@ -9,17 +9,22 @@ import com.Proyectofinal.DentalDate.Entity.Odontologo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Laura Alvarez
  */
+@Repository
 public interface OdontologoRepositorio extends JpaRepository<Odontologo,String> {
     
-    @Query("SELECT o FROM Odontologo o WHERE o.especialidad")
+    @Query("SELECT o FROM Odontologo o WHERE o.especialidad = :especialidad")
     public Odontologo buscarPorEspecialidad(@Param("especialidad")String especialidad);
     
+    @Query("SELECT o FROM Odontologo o WHERE o.id = :id")
+    public Odontologo buscarPorId(@Param("id")String id);
     
-    
-    
+    @Query("SELECT o FROM Odontologo o WHERE o.matricula = : matricula")
+    public Odontologo buscarPorMatricula(@Param("matricula")String matricula);
+   
 }

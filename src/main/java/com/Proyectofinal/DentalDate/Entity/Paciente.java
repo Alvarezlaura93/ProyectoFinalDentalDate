@@ -6,38 +6,32 @@
 
 package com.Proyectofinal.DentalDate.Entity;
 
+import com.Proyectofinal.DentalDate.Roles.Role;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Paciente {
+public class Paciente extends Usuario {
 
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator( name ="uuid",strategy="uuid2")
-    private String id;
-    private String nombre;
-    private String apellido;
+    
+ 
     private Long Dni;
-    private String email;
-    private String contraseña;
+ 
     
     @OneToOne
     private Odontologo odontologo;
+   
+    
 
     public Paciente() {
+        super();
     }
 
-    public Paciente(String nombre, String apellido, Long Dni, String email, String contraseña, Odontologo odontologo) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Paciente(String nombre, String apellido, Long Dni, String email, String contraseña, Odontologo odontologo, Role role) {
+        super(nombre, apellido ,email,contraseña, role);
         this.Dni = Dni;
-        this.email = email;
-        this.contraseña = contraseña;
         this.odontologo = odontologo;
+      
     }
 
     public String getId() {
@@ -48,21 +42,6 @@ public class Paciente {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     public Long getDni() {
         return Dni;
@@ -72,21 +51,6 @@ public class Paciente {
         this.Dni = Dni;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
 
     public Odontologo getOdontologo() {
         return odontologo;
@@ -96,11 +60,5 @@ public class Paciente {
         this.odontologo = odontologo;
     }
 
-    @Override
-    public String toString() {
-        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", Dni=" + Dni + ", email=" + email + ", contrase\u00f1a=" + contraseña + ", odontologo=" + odontologo + '}';
-    }
-    
-    
     
 }

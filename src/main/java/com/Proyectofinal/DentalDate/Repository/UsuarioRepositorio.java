@@ -5,7 +5,7 @@
  */
 package com.Proyectofinal.DentalDate.Repository;
 
-import com.Proyectofinal.DentalDate.Entity.Turno;
+import com.Proyectofinal.DentalDate.Entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -16,11 +16,12 @@ import org.springframework.stereotype.Repository;
  * @author Laura Alvarez
  */
 @Repository
-public interface TurnoRepositorio extends JpaRepository<Turno,String>{
-    @Query("SELECT t FROM Turno t WHERE t.id = :id")
-    public Turno buscarPorId(@Param("id")String id);
-
-//    @Query("SELECT turno,paciente FROM Turno INNER JOIN Paciente ON turno.id = paciente.id")
-//    public Turno turnoPaciente(@Param("id")String id);
+public interface UsuarioRepositorio extends JpaRepository<Usuario,String>{
+    
+    @Query("SELECT u FROM Usuario u WHERE u.email=: email")
+    public Usuario buscarPorEmail(@Param("email")String email);
+    
+    
+    
+    
 }
-
