@@ -218,11 +218,7 @@ footer{
     width: 100%;
     padding: 50px 0px;
     font-family: 'Nunito', sans-serif;
-<<<<<<< HEAD
     background-color: var(--color-esqueleto);
-=======
-  
->>>>>>> 7a7decf72d4e474a59024edff6641366cb400c28
     background-image: url("../Images/background-footer.svg");
     background-size: cover;
 

@@ -22,11 +22,9 @@ public class MainController {
             model.put("exito","Logueado con exito");
            
         }
-<<<<<<< HEAD
+
         return "index.html";
-=======
-         return "index.html";
->>>>>>> 7a7decf72d4e474a59024edff6641366cb400c28
+
     }
     
     @RequestMapping("/sucursales")
