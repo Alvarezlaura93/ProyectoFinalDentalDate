@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" </html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +18,7 @@
                     <h2 class="logo">Dental <span>Date</span>  </h2>
                      
                     <ul>
-                        <li><a href="#" class="select">TURNO</a></li>
+                        <li><a href="#" class="select" th:href="@{/formTurno} "   >TURNO</a></li>
                         <li><a href="#">SUCURSALES</a></li>
                         <li><a href="#">SERVICIOS</a></li>
                         <li><a href="#">CONTACTO</a></li>
@@ -43,8 +44,8 @@
                     <h1>DENTAL</h1>
                     <h2>DATE</h2>
                     <p>Ya sos cliente registrate asi te llenamos la casilla de spam</p> 
-                    <input type="button" value="Solicitar Turno">
-                    <input type="button" value="Registrate">
+                      <button   >  <a  th:href="@{/formTurno}"   >  Turno </a>  </button>
+                    <button   >  <a  th:href="@{/formulario} "   >  Registrate </a>  </button>
                 </div>
                 <div class="container__vector">
                     <img src=" " alt="">
@@ -86,7 +87,11 @@
                 </div>
                 <div class="card">
                     <div class="cover__card">
+<<<<<<< HEAD
                         <img src="../img-3.jpg" alt="">
+=======
+                        <img src="img/img-1.jpg" alt="">
+>>>>>>> 7a7decf72d4e474a59024edff6641366cb400c28
                     </div>
                     <h2>Profecionales</h2>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui sunt eius dolore pariatur. Error, provident et similique sunt voluptate odit eos facere expedita, culpa at officia magnam quia vel eius!</p>
@@ -100,7 +105,7 @@
 
         </section>
         <div class="body__Page">
-            <div class="container__article">
+<!--            <div class="container__article">
                 <div class="box__article"> <h1>Consultorios</h1> 
                    
                 <div class="box__article">Ortodoncia </div>
@@ -108,13 +113,13 @@
                 <div class="box__article">beneficios </div>
                 <div class="box__article">Obra sociales </div>
                
-            </div>
-            <div class="container-testimonials">
+            </div>-->
+<!--            <div class="container-testimonials">
                 <div class="box__testimonials">asdasdsadasdasdas</div>
                 <div class="box__testimonials"> que es eso  </div>
                 <div class="box__testimonials"></div>
             </div>
-        </div>
+        </div>-->
         <!-- el footer  -->
         <Footer>
             <div class="container__footer">

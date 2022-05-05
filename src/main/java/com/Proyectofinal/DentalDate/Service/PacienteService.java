@@ -22,7 +22,7 @@ public class PacienteService {
     private PacienteRepositorio pacienteRepositorio;
 
     @Transactional
-    public Paciente GuardarUsuario(String nombre, String apellido, Long Dni, String email, String contraseña) throws Exception {
+    public Paciente GuardarUsuario(String nombre, String apellido, String Dni, String email, String contraseña) throws Exception {
         validator(nombre, apellido, Dni, email, contraseña);
         Paciente p = new Paciente();
         BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
@@ -32,8 +32,8 @@ public class PacienteService {
         p.setEmail(email);
         p.setContraseña(contraseña);
         p.setRole(Role.USER);
-
-        return p;
+        
+        return pacienteRepositorio.save(p);
     }
 
     //modifica la contraseña del usuario
@@ -70,7 +70,7 @@ public class PacienteService {
     }
 
     // valida los datos del usuario
-    public void validator(String nombre, String apellido, Long Dni, String email, String contraseña) throws Exception {
+    public void validator(String nombre, String apellido, String Dni, String email, String contraseña) throws Exception {
 
         if (nombre == null || nombre.isEmpty()) {
             throw new Exception("debe ingresar su nombre");

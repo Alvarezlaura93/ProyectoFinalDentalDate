@@ -94,8 +94,11 @@ transition: 0.3s;
     color: #fff;
 }
  /*botones registrate y turno*/
-.cover input[type="button"]{
-    padding: 10px 40px;
+.cover button [type="button"]{
+  
+}
+button{
+      padding: 10px 40px;
     margin-top: 40px;
     font-size: 18px;
     font-weight: 600;
@@ -106,6 +109,9 @@ transition: 0.3s;
     box-shadow: 1px 1px 30px -5px #20202049;
     cursor: pointer;
     transition: box-shadow 500ms;
+}
+button a {
+    color: white;
 }
 
 .cover input[type="button"]:hover{
@@ -212,7 +218,11 @@ footer{
     width: 100%;
     padding: 50px 0px;
     font-family: 'Nunito', sans-serif;
+<<<<<<< HEAD
     background-color: var(--color-esqueleto);
+=======
+  
+>>>>>>> 7a7decf72d4e474a59024edff6641366cb400c28
     background-image: url("../Images/background-footer.svg");
     background-size: cover;
 
