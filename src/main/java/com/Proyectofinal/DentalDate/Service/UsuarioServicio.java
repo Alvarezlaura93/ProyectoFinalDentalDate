@@ -44,7 +44,7 @@ private UsuarioRepositorio usuariorepositorio;
             //Esto me permite guardar el OBJETO USUARIO LOG, para luego ser utilizado
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
             HttpSession session = attr.getRequest().getSession(true);
-            session.setAttribute("usuariosession", u);
+            session.setAttribute("usuariosession", u); //traerme el usuario
 
             User user = new User(u.getEmail(), u.getContraseña(), permisos);
             return user;

@@ -23,7 +23,7 @@ public class Turno {
     private String id;
     
      //trabajar con dias
-    private Date fecha;
+    private String fecha;
     private String hora;
     //private String hora; "12:30"
     
@@ -36,7 +36,7 @@ public class Turno {
     public Turno() {
     }
 
-    public Turno(Date fecha, Odontologo odontologo, Paciente paciente) {
+    public Turno(String fecha, Odontologo odontologo, Paciente paciente) {
         this.fecha = fecha;
         this.odontologo = odontologo;
         this.paciente = paciente;
@@ -50,11 +50,11 @@ public class Turno {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
