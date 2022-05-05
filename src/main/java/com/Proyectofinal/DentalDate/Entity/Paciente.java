@@ -15,7 +15,7 @@ public class Paciente extends Usuario {
 
     
  
-    private Long Dni;
+    private String Dni;
  
     
     @OneToOne
@@ -27,7 +27,7 @@ public class Paciente extends Usuario {
         super();
     }
 
-    public Paciente(String nombre, String apellido, Long Dni, String email, String contraseña, Odontologo odontologo, Role role) {
+    public Paciente(String nombre, String apellido, String Dni, String email, String contraseña, Odontologo odontologo, Role role) {
         super(nombre, apellido ,email,contraseña, role);
         this.Dni = Dni;
         this.odontologo = odontologo;
@@ -43,11 +43,11 @@ public class Paciente extends Usuario {
     }
 
 
-    public Long getDni() {
+    public String getDni() {
         return Dni;
     }
 
-    public void setDni(Long Dni) {
+    public void setDni(String Dni) {
         this.Dni = Dni;
     }
 

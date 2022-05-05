@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="turno.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">  
+          <input type="hidden"  th:field="*{id}" name="id" ><br>
+    <form   action="@{/guardarTurno}" th: object ="${paciente}" method="post" readonly = "readonly">
+      <h3>Saca tu turno</h3>
+      <h4>Ingresa tus datos</h4>
+      <fieldset>
+        <input placeholder="Ingrese nombre" type="text"  th:field="*{id}" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ingrese Email" type="email" th:field="*{Email}" t required>
+      </fieldset>
+     
+      <fieldset>
+        <input placeholder="Ingrese DNI" type="text" th:field="*{Dni}" required>
+      </fieldset>
+      <select >
+<!--     <opcion value="10:30" > 10:30</opcion>
+     <opcion value="11:30"> 11:30</opcion>-->
+
+</select>
+
+       <fieldset>
+        <input placeholder="Ingrese Especialidad" type="text"  tabindex="4" required>
+      </fieldset>
+       <fieldset>
+        <input placeholder="Ingrese Odontologo" type="text" tabindex="4" required>
+      </fieldset>
+      <fieldset > <p>Ingrese Dia</p>
+        
+        <input class="fecha" type="date" tabindex="4"   style="background-color: rgb(106, 218, 106); color: aliceblue; border-radius: 5px;"  required>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar</button>
+      </fieldset>
+    </form>
+   
+    
+  </div>
+</body>
+</html>
+
+
+
+  

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="form-styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">  
+    <form id="contact" th:action="@{/guardarRegistro}" method="post">
+      <h3>Registrate</h3>
+      <h4>Registrate para recibir beneficions</h4>
+      <fieldset>
+        <input placeholder="Ingrese nombre" name="nombre" type="text" tabindex="1" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ingrese apellido" type="text" name="apellido" tabindex="2" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ingrese DNI" type="text" name="Dni" tabindex="5" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ingrese Email" type="email" name="email" tabindex="3" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Ingrese contraseña" type="password" name="contraseña" tabindex="4" required>
+      </fieldset>
+     
+      <fieldset>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar <a    > </a>  </button>
+      </fieldset>
+    </form>
+   
+    
+  </div>
+</body>
+</html>
+
+
+
+
+
+
