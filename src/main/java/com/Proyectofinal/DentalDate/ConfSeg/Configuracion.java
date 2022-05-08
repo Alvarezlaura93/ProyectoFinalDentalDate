@@ -50,8 +50,8 @@ public class Configuracion extends WebSecurityConfigurerAdapter {
                         .loginPage("/login") 
                         .loginProcessingUrl("/logincheck")
                         .usernameParameter("email") 
-                        .passwordParameter("password")
-                        .defaultSuccessUrl("/?login").permitAll() 
+                        .passwordParameter("password")  /// ACAA ES MI DUDA , 
+                        .defaultSuccessUrl("/index").permitAll() //despues de loguear ingresa al index ???? 
                 .and().logout() 
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout").permitAll()
@@ -62,3 +62,4 @@ public class Configuracion extends WebSecurityConfigurerAdapter {
     
     
 }
+

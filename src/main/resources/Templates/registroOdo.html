@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos | Dental Date</title>
+
+    <link rel="stylesheet" href="estilos/index.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+   <div class="hero">
+                <nav >
+                    <h2 class="logo">Dental <span>Date</span>  </h2>
+                     
+                    <ul>
+                          <li><a href="#">PROVEEDORES</a></li>
+                        <li><a href="#">TURNOS DE HOY</a></li>
+                        <li><a href="#">PACIENTES</a></li>
+                        <li><a href="#">REGISTRAR ODONTOLOGO</a></li>
+                    </ul>
+                </nav>
+     </div>
+
+
+
+<section id="contacto">
+    <h1></h1>
+    <form action="{@/guardarOdo}" method="post " enctype="multipart/form-data">
+        <label>
+            nombre
+            <input type="tet" name="nombre" id="nombre" required placeholder="Ingrese su nombre">
+        </label>
+        <label>
+            Apellido
+            <input type="text" name="apellido" id="apellidp" required placeholder="Ingrese su apellido">
+        </label>
+        <label>
+            Especialidad
+            <input type="text" name="especialidad" id="especialidad" required placeholder="Ingrese su especialidad">
+        </label>
+        <label>
+            N° de Matricula
+            <input type="number" name="matricula" id="matricula" required placeholder="Ingrese su matricula habilitante">
+        </label>
+        <label>
+            <input class="enviar" type="submit" value="Enviar">
+        </label>
+    </form>
+</section>   
+
+
+
+</body>
+</html>

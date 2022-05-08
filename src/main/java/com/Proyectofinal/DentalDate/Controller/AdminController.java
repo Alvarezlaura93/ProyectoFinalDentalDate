@@ -7,13 +7,16 @@ package com.Proyectofinal.DentalDate.Controller;
 
 import com.Proyectofinal.DentalDate.Entity.Odontologo;
 import com.Proyectofinal.DentalDate.Entity.Paciente;
+import com.Proyectofinal.DentalDate.Entity.Turno;
 import com.Proyectofinal.DentalDate.Entity.Usuario;
 import com.Proyectofinal.DentalDate.Service.OdontologoService;
 import com.Proyectofinal.DentalDate.Service.PacienteService;
+import com.Proyectofinal.DentalDate.Service.TurnoService;
 import com.Proyectofinal.DentalDate.Service.UsuarioServicio;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +27,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/") //localhost:8080/odontologo
+@PreAuthorize("hasRole('ROLE_ADMIN')")
+@RequestMapping("/admin") //localhost:8080/odontologo
 public class AdminController {
 
     @Autowired
@@ -32,6 +36,8 @@ public class AdminController {
 
     @Autowired
     private PacienteService pacienteService;
+    @Autowired
+    private TurnoService TurnoService;
 
     @Autowired
     private UsuarioServicio us;
@@ -44,7 +50,7 @@ public class AdminController {
     //LISTAR
     //QUERY PARA TRAER AMBAS COLUMNAS??? 
     //INDEX DE FRANCO FALTA AQUI XD
-    @GetMapping("/listar-pacientes-turnos-con-odontologos")
+    @GetMapping("/admin/listar-pacientes-turnos-con-odontologos")
     public String listarPacientes(ModelMap modelo) {
 
         List<Odontologo> odontologo = odontologoService.listaOdontologo();
@@ -52,8 +58,14 @@ public class AdminController {
 
         List<Paciente> listapacientes = pacienteService.listaPaciente();
         modelo.put("listaPacientes", listapacientes);
+        
+        
+        List<Turno> listaturnos = TurnoService.ListarTurnos();
+        modelo.put("listaTurnos", listaturnos);
+        
+        
 
-        return "admin.html";
+        return "informacionTurnos";
     }
 
     @GetMapping("/registro-odontologo") //crear botton para redirecionar al formulario
@@ -62,7 +74,7 @@ public class AdminController {
         return "form-odont";
     }
 
-    @PostMapping("/formOdo") //formulario-ondontolog-por-creado-ADMIN-
+    @PostMapping("/admin/formOdo") //formulario-ondontolog-por-creado-ADMIN-
     public String guardar(HttpSession session, ModelMap modelo, String nombre, String apellido, String email, String contraseña, String Matricula, String especialidad) {
 
         try {

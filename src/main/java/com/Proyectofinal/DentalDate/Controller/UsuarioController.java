@@ -49,11 +49,11 @@ public class UsuarioController {
         return "formulario";
     }
 
-    @RequestMapping("/form---Turno")
-    public String formularioRegistroTurno(Model modelo) {
-
-        return "form--Turno";
-    }
+//    @RequestMapping("/form---Turno")
+//    public String formularioRegistroTurno(Model modelo) {
+//
+//        return "form--Turno";
+//    }
 //click en el boton guardar 
 //
     //creamos y guardamos el registro del usuario
@@ -81,14 +81,14 @@ public class UsuarioController {
                         Usuario u = (Usuario) session.getAttribute("usuariosession"); 
 		Paciente paciente= pacienteServicio.getOne(u.getId());
 		modelo.addObject("paciente", paciente);
-	
+	//need la session 
                 
 		return modelo;
 	}   
     @PostMapping("/guardarTurno")// 
     public String  guardar_el_formulario_con_turno(ModelMap modelo, @PathVariable String id, String fecha, Odontologo odontologo, Paciente paciente) throws Exception {
         //quiero que me traiga todo los datos del usuario 
-        try {      
+        try {      //session????? 
             turnoService.guardarTurno(fecha, odontologo, paciente);
             modelo.addAttribute("Paciente", paciente);
 

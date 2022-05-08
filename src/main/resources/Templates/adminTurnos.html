@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos | Dental Date</title>
+
+    <link rel="stylesheet" href="estilos/index.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+ 
+
+
+        <section id="info">
+            <h1>Turnos</h1>
+
+            <div class="infoTurnos">
+                
+            </div>
+            <table>
+                <tr  >
+                  <td><strong>Paciente</strong></td>
+                  <td><strong>turno</strong></td>
+                  <td><strong>odontologo</strong></td>
+                  <td></td>
+                </tr>
+                <tr th:each="paciente : ${listarPacientes}"  th:each="turno : ${listarTurno}" th:each="odontologo : ${listarOdontologo}"  >
+                    <td th:text="${paciente.nombre}"  ><strong> </strong></td>
+                    <td  th:text="${turno.dia}" ><strong>hora</strong></td>
+                    <td  th:text="${odontologo.nombre}"  ><strong>Dr. Juan</strong></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+            </table>
+        </section>
+
+
+
+
+
+
+
+
+</body>
+</html>
