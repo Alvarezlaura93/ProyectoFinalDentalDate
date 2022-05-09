@@ -28,7 +28,7 @@
                   <td><strong>odontologo</strong></td>
                   <td></td>
                 </tr>
-                <tr th:each="paciente : ${listarPacientes}"  th:each="turno : ${listarTurno}" th:each="odontologo : ${listarOdontologo}"  >
+                <tr th:each="paciente : ${listarPacientes}" >
                     <td th:text="${paciente.nombre}"  ><strong> </strong></td>
                     <td  th:text="${turno.dia}" ><strong>hora</strong></td>
                     <td  th:text="${odontologo.nombre}"  ><strong>Dr. Juan</strong></td>
@@ -36,6 +36,8 @@
                     <td></td>
                   </tr>
             </table>
+            
+             <button   >  <a  th:href="@{/login?logout} " method="POST"  > cerrar sesion </a>  </button>
         </section>
 
 

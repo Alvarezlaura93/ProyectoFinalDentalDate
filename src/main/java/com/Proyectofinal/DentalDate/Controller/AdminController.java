@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/admin") //localhost:8080/odontologo
 public class AdminController {
 
@@ -50,7 +50,7 @@ public class AdminController {
     //LISTAR
     //QUERY PARA TRAER AMBAS COLUMNAS??? 
     //INDEX DE FRANCO FALTA AQUI XD
-    @GetMapping("/admin/listar-pacientes-turnos-con-odontologos")
+    @GetMapping("/login/adminTurnos")
     public String listarPacientes(ModelMap modelo) {
 
         List<Odontologo> odontologo = odontologoService.listaOdontologo();
@@ -65,8 +65,10 @@ public class AdminController {
         
         
 
-        return "informacionTurnos";
+        return "adminTurnos";
     }
+    
+    
 
     @GetMapping("/registro-odontologo") //crear botton para redirecionar al formulario
     public String formulario() {
