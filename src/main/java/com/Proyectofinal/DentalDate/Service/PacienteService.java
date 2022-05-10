@@ -20,19 +20,14 @@ public class PacienteService {
 
     @Autowired
     private PacienteRepositorio pacienteRepositorio;
+    
+    private UsuarioServicio usuarioservice;
 
     @Transactional
     public Paciente GuardarUsuario(String nombre, String apellido, String Dni, String email, String contraseña) throws Exception {
         validator(nombre, apellido, Dni, email, contraseña);
-        Paciente p = new Paciente();
-        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
-        p.setNombre(nombre);
-        p.getApellido();
+        Paciente p = (Paciente) usuarioservice.crearUsuario(Dni, nombre, apellido, email, contraseña, Role.USER);
         p.setDni(Dni);
-        p.setEmail(email);
-        p.setContraseña(enc.encode(contraseña));
-        p.setRole(Role.USER);
-        
         return pacienteRepositorio.save(p);
     }
 

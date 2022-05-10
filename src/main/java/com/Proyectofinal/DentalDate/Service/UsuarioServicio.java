@@ -20,6 +20,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -32,10 +33,11 @@ private UsuarioRepositorio usuariorepositorio;
     
 public Usuario crearUsuario(String id, String nombre, String apellido, String email, String contraseña, Role role){
     Usuario u= new Usuario() {};
+    BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
     u.setNombre(nombre);
     u.setApellido(apellido);
     u.setEmail(email);
-    u.setContraseña(contraseña);
+    u.setContraseña(enc.encode(contraseña));
     u.setRole(role);
     
    return usuariorepositorio.save(u);
