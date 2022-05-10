@@ -30,7 +30,7 @@ public class PacienteService {
         p.getApellido();
         p.setDni(Dni);
         p.setEmail(email);
-        p.setContraseña(contraseña);
+        p.setContraseña(enc.encode(contraseña));
         p.setRole(Role.USER);
         
         return pacienteRepositorio.save(p);

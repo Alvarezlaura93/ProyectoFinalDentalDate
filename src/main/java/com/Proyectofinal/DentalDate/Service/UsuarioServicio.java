@@ -9,6 +9,7 @@ package com.Proyectofinal.DentalDate.Service;
 
 import com.Proyectofinal.DentalDate.Entity.Usuario;
 import com.Proyectofinal.DentalDate.Repository.UsuarioRepositorio;
+import com.Proyectofinal.DentalDate.Roles.Role;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -29,6 +30,17 @@ public class UsuarioServicio implements UserDetailsService{
 @Autowired
 private UsuarioRepositorio usuariorepositorio;
     
+public Usuario crearUsuario(String id, String nombre, String apellido, String email, String contraseña, Role role){
+    Usuario u= new Usuario() {};
+    u.setNombre(nombre);
+    u.setApellido(apellido);
+    u.setEmail(email);
+    u.setContraseña(contraseña);
+    u.setRole(role);
+    
+   return usuariorepositorio.save(u);
+    
+}
     
     
     

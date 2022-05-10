@@ -20,21 +20,20 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Laura Alvarez
  */
 @Service
-public class OdontologoService  {
+public class OdontologoService {
 
     @Autowired
     private OdontologoRepositorio Odrepositorio;
+    
+    @Autowired
+    private UsuarioServicio usuarioservice;
 
     @Transactional
     //cargo un odontologo
     public Odontologo Guardar(String nombre, String apellido, String email, String contraseña, String Matricula, String especialidad) {
-        Odontologo od = new Odontologo();
-        od.setNombre(nombre);
-        od.setApellido(apellido);
+        Odontologo od = (Odontologo) usuarioservice.crearUsuario(email, nombre, apellido, email, contraseña, Role.ADMIN);
         od.setMatricula(Matricula);
         od.setEspecialidad(especialidad);
-        od.setEmail(email);
-        od.setContraseña(contraseña);
         od.setRole(Role.ADMIN);
 
         return Odrepositorio.save(od);

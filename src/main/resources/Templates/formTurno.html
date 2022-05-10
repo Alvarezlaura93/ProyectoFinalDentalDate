@@ -10,7 +10,7 @@
 <body>
   <div class="container">  
           <input type="hidden"  th:field="*{id}" name="id" ><br>
-    <form   action="@{/guardarTurno}" th: object ="${paciente}" method="post" readonly = "readonly">
+    <form  th:action="@{/guardarTurno}" th: object ="${paciente}" method="post" readonly = "readonly">
       <h3>Saca tu turno</h3>
       <h4>Ingresa tus datos</h4>
       <fieldset>
