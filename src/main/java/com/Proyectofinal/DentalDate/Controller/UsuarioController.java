@@ -49,41 +49,41 @@ public class UsuarioController {
         return "formulario";
     }
 
-//    @RequestMapping("/form---Turno")
-//    public String formularioRegistroTurno(Model modelo) {
-//
-//        return "form--Turno";
+    @RequestMapping("/formTurno")
+    public String formularioRegistroTurno(Model modelo) {
+
+        return "formTurno";
 //    }
 //click en el boton guardar 
 //
     //creamos y guardamos el registro del usuario
 
     @PostMapping("/guardarRegistro")
-    public String guardar_el_formulario(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String Dni, @RequestParam String email, @RequestParam String contraseña, Odontologo odontologo, Paciente paciente) throws Exception {
+    public String guardar_el_formulario(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String Dni, @RequestParam String email, @RequestParam String contraseña) throws Exception {
 
         try { //si no agrego em metodo guartadrTurno dentro de guardarPaciente
 
-            Paciente GuardarUsuario = pacienteServicio.GuardarUsuario(nombre, apellido, Dni, email, contraseña);
+            Paciente GuardarUsuario = pacienteServicio.GuardarPaciente(nombre, apellido, Dni, email, contraseña);
             modelo.put("Exito", "Guardado con exito");
 
             return "redirect:"; // si no aca agregamos un html
         } catch (Exception ex) {
+            ex.printStackTrace();
             modelo.put("Error", "vuelva a intentarlo");
-            return "formulario:";
+            return "formulario";
         }
     }
   // 1ro- es trarme todo del registro para mostrar {id}
     //2do- seleccionar fecha 
     //3ro - seleccionar el especialziacion (opcional)
     @GetMapping("/formTurno")
-	public ModelAndView guardarFomularioConTurno( HttpSession session ) {
-                        ModelAndView modelo = new ModelAndView("formTurno");
-                        Usuario u = (Usuario) session.getAttribute("usuariosession"); 
+	public String guardarFomularioConTurno( ModelMap model, HttpSession session ) {
+                Usuario u = (Usuario) session.getAttribute("usuariosession"); 
 		Paciente paciente= pacienteServicio.getOne(u.getId());
-		modelo.addObject("paciente", paciente);
+		model.put("form", u);
 	//need la session 
                 
-		return modelo;
+		return "redirect:";
 	}   
     @PostMapping("/guardarTurno")// 
     public String  guardar_el_formulario_con_turno(ModelMap modelo, @PathVariable String id, String fecha, Odontologo odontologo, Paciente paciente) throws Exception {

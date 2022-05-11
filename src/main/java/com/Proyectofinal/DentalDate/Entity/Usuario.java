@@ -16,8 +16,8 @@ import javax.persistence.InheritanceType;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)//cada clase tiene su propia tabla
-public  abstract class Usuario {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)//cada clase tiene su propia tabla
+public class Usuario {
 
     @Id
     @GeneratedValue(generator = "uuid")

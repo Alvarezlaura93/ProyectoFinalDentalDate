@@ -50,7 +50,13 @@ public class AdminController {
     //LISTAR
     //QUERY PARA TRAER AMBAS COLUMNAS??? 
     //INDEX DE FRANCO FALTA AQUI XD
-    @GetMapping("/login/adminTurnos")
+//    @RequestMapping("/admin/Turnos")
+//    public String Turnos(){
+//        return "adminTurnos";
+//    }
+    
+    
+    @GetMapping("/adminTurnos")
     public String listarPacientes(ModelMap modelo) {
 
         List<Odontologo> odontologo = odontologoService.listaOdontologo();
@@ -69,29 +75,31 @@ public class AdminController {
     }
     
     
+    
+    
+    @RequestMapping("/registroOdo") //crear botton para redirecionar al formulario
+    public String formulario(ModelMap modelo) {
 
-    @GetMapping("/registro-odontologo") //crear botton para redirecionar al formulario
-    public String formulario() {
-
-        return "form-odont";
+        return "registroOdo";
     }
 
-    @PostMapping("/admin/formOdo") //formulario-ondontolog-por-creado-ADMIN-
-    public String guardar(HttpSession session, ModelMap modelo, String nombre, String apellido, String email, String contraseña, String Matricula, String especialidad) {
+    @PostMapping("/registroOdo") //formulario-ondontolog-por-creado-ADMIN-
+    public String guardar(ModelMap modelo, String nombre, String apellido, String email, String contraseña, String Matricula, String especialidad) {
 
         try {
-            Usuario u = (Usuario) session.getAttribute("usuariosession");
-            Odontologo o = odontologoService.Guardar(nombre, apellido, email, contraseña, Matricula, especialidad);
+            
+            Odontologo o = odontologoService.GuardarOdontologo(nombre, apellido, email, contraseña, Matricula, especialidad);
             //ns.registroModificacionPerro(p, u, "Bienvenido a la app de perros \n \n mail: " + u.getEmail() + " su perro fue cargado correctamente"
             //        + "\n \n Perro: " + p.getNombre() + "\n Apodo: " + p.getApodo() + "\n Raza: " + p.getRaza(), "Registro Perro");
             modelo.put("exito", "Registro exitoso");
 
-            return "fredirect/:";
+            return "adminTurnos";
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e);
+           e.printStackTrace();
             modelo.put("error", "Falto algun dato");
-            return "formOdo";
+            return "registroOdo";
         }
     }
 

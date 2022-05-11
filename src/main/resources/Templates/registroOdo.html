@@ -1,59 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-    <html lang="en"  xmlns:th="http://www.thymeleaf.org" >
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenidos | Dental Date</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+ 
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Bienvenidos | Dental Date</title>
 
-    <link rel="stylesheet" href="estilos/index.css">
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="estilos/index.css">
+            <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+            
+             <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-</head>
-<body>
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
 
-   <div class="hero">
+        </head>
+        <body>
+
+            <div class="hero">
                 <nav >
                     <h2 class="logo">Dental <span>Date</span>  </h2>
-                     
+
                     <ul>
-                          <li><a href="#">PROVEEDORES</a></li>
-                        <li><a href="#">TURNOS DE HOY</a></li>
+                        <li><a href="#">PROVEEDORES</a></li>
+                        <li><a href="#"th:href="@{/admin/Turnos}">TURNOS DE HOY</a></li>
                         <li><a href="#">PACIENTES</a></li>
-                        <li><a href="#">REGISTRAR ODONTOLOGO</a></li>
+                        <li><a href="#registro">REGISTRAR ODONTOLOGO</a></li>
                     </ul>
                 </nav>
-     </div>
+            </div>
 
 
 
-<section id="contacto">
-    <h1></h1>
-    <form action="{@/guardarOdo}" method="post " enctype="multipart/form-data">
-        <label>
-            nombre
-            <input type="tet" name="nombre" id="nombre" required placeholder="Ingrese su nombre">
-        </label>
-        <label>
-            Apellido
-            <input type="text" name="apellido" id="apellidp" required placeholder="Ingrese su apellido">
-        </label>
-        <label>
-            Especialidad
-            <input type="text" name="especialidad" id="especialidad" required placeholder="Ingrese su especialidad">
-        </label>
-        <label>
-            N° de Matricula
-            <input type="number" name="matricula" id="matricula" required placeholder="Ingrese su matricula habilitante">
-        </label>
-        <label>
-            <input class="enviar" type="submit" value="Enviar">
-        </label>
-    </form>
-</section>   
+            <section id="registro">
+                <h1></h1>
+                <form th:action="@{/admin/registroOdo}" method="POST">
+                    <label>
+                        nombre
+                        <input type="text" name="nombre" id="nombre" required placeholder="Ingrese su nombre">
+                    </label>
+                    <label>
+                        Apellido
+                        <input type="text" name="apellido" id="apellido" required placeholder="Ingrese su apellido">
+                    </label>
+                    <label>
+                        email
+                        <input type="email" name="email" id="email" required placeholder="Ingrese su email">
+                    </label>
+                    <label>
+                        contraseña
+                        <input type="password" name="contraseña" id="contraseña" required placeholder="Ingrese su contraseña">
+                    </label>
+                    <label>
+                        N° de Matricula
+                        <input type="text" name="matricula" id="matricula" required placeholder="Ingrese su matricula habilitante">
+                    </label>
+                    <label>
+                        Especialidad
+                        <input type="text" name="especialidad" id="especialidad" required placeholder="Ingrese su especialidad">
+                    </label>
+                    <label>
+                        <button name="enviar" type="submit" id="contact-submit" data-submit="...Sending">enviar <a    > </a>  </button>
+                    </label>
+                    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        Usuario invalido!
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-success" role="alert">
+                        You have been logged out.
+                    </div>
+                </form>
+            </section>   
 
 
 
-</body>
-</html>
+        </body>
+    </html>

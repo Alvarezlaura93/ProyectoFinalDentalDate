@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,20 +9,19 @@
 </head>
 <body>
   <div class="container">  
-          <input type="hidden"  th:field="*{id}" name="id" ><br>
-    <form  th:action="@{/guardarTurno}" th: object ="${paciente}" method="post" readonly = "readonly">
+    <form  th:action="@{/formTurno}" method="post">
       <h3>Saca tu turno</h3>
       <h4>Ingresa tus datos</h4>
       <fieldset>
-        <input placeholder="Ingrese nombre" type="text"  th:field="*{nombre}" required autofocus>
+        <input placeholder="Ingrese nombre" type="text"  th:text="*{nombre}" required autofocus>
       </fieldset>
       <fieldset>
-        <input placeholder="Ingrese Email" type="email" th:field="*{Email}" t required>
+        <input placeholder="Ingrese Email" type="email" th:text="*{Email}" t required>
       </fieldset>
      
       <fieldset>
-        <input placeholder="Ingrese DNI" type="text" th:field="*{Dni}" required>
-      </fieldset>
+        <input placeholder="Ingrese DNI" type="text" th:text="*{Dni}" required>
+      </fieldset> 
       <select >
 <!--     <opcion value="10:30" > 10:30</opcion>
      <opcion value="11:30"> 11:30</opcion>-->

@@ -24,10 +24,17 @@ public class PacienteService {
     private UsuarioServicio usuarioservice;
 
     @Transactional
-    public Paciente GuardarUsuario(String nombre, String apellido, String Dni, String email, String contraseña) throws Exception {
+    public Paciente GuardarPaciente(String nombre, String apellido, String Dni, String email, String contraseña) throws Exception {
         validator(nombre, apellido, Dni, email, contraseña);
-        Paciente p = (Paciente) usuarioservice.crearUsuario(Dni, nombre, apellido, email, contraseña, Role.USER);
+        Paciente p = new Paciente();
+        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+        p.setNombre(nombre);
+        p.setApellido(apellido);
+//        Paciente p = (Paciente) usuarioservice.crearUsuario(nombre, apellido, email, contraseña, Role.USER);
         p.setDni(Dni);
+        p.setEmail(email);
+        p.setContraseña(enc.encode(contraseña));
+        p.setRole(Role.USER);
         return pacienteRepositorio.save(p);
     }
 

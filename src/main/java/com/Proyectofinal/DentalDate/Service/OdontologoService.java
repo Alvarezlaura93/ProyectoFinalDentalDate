@@ -25,32 +25,36 @@ public class OdontologoService {
     @Autowired
     private OdontologoRepositorio Odrepositorio;
     
-    @Autowired
-    private UsuarioServicio usuarioservice;
+
 
     @Transactional
     //cargo un odontologo
-    public Odontologo Guardar(String nombre, String apellido, String email, String contraseña, String Matricula, String especialidad) {
-        Odontologo od = (Odontologo) usuarioservice.crearUsuario(email, nombre, apellido, email, contraseña, Role.ADMIN);
-        od.setMatricula(Matricula);
-        od.setEspecialidad(especialidad);
-        od.setRole(Role.ADMIN);
+    public Odontologo GuardarOdontologo(String nombre, String apellido, String email, String contraseña, String Matricula, String especialidad) {
+        Odontologo odn = new Odontologo();
+        odn.setNombre(nombre);
+        odn.setApellido(apellido);
+        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+        odn.setEmail(email);
+        odn.setContraseña(enc.encode(contraseña));
+        odn.setMatricula(Matricula);
+        odn.setEspecialidad(especialidad);
+        odn.setRole(Role.ADMIN);
 
-        return Odrepositorio.save(od);
+        return Odrepositorio.save(odn);
     }
 
     @Transactional
     public Odontologo modificarOdontologo(String id, String email, String contraseña, String nuevacontraseña) throws Exception {
         validator2(email, contraseña, nuevacontraseña);
-        Odontologo od = Odrepositorio.getById(id);
+        Odontologo odon = Odrepositorio.getById(id);
         BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
-        if (od == null) {
+        if (odon == null) {
             throw new Exception("No existe un Odontologo con esa ID");
         }
-        od.setEmail(email);
-        od.setContraseña(enc.encode(contraseña));
+        odon.setEmail(email);
+        odon.setContraseña(enc.encode(contraseña));
 
-        return Odrepositorio.save(od);
+        return Odrepositorio.save(odon);
     }
 
     //elimino el odontologo creado
