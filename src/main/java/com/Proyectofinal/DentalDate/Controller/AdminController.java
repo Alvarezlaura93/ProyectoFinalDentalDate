@@ -59,16 +59,16 @@ public class AdminController {
     @GetMapping("/adminTurnos")
     public String listarPacientes(ModelMap modelo) {
 
-        List<Odontologo> odontologo = odontologoService.listaOdontologo();
-        modelo.put("listaOdontologos", odontologo);
-
-        List<Paciente> listapacientes = pacienteService.listaPaciente();
-        modelo.put("listaPacientes", listapacientes);
-        
-        
-        List<Turno> listaturnos = TurnoService.ListarTurnos();
-        modelo.put("listaTurnos", listaturnos);
-        
+//        List<Odontologo> odontologo = odontologoService.listaOdontologo();
+//        modelo.put("listaOdontologos", odontologo);
+//
+//        List<Paciente> listapacientes = pacienteService.listaPaciente();
+//        modelo.put("listaPacientes", listapacientes);
+//        
+//        
+//        List<Turno> listaturnos = TurnoService.ListarTurnos();
+//        modelo.put("listaTurnos", listaturnos);
+//        
         
 
         return "adminTurnos";

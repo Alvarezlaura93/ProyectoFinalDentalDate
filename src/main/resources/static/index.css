@@ -52,6 +52,20 @@ nav ul li a:hover{
 
 transition: 0.3s;
 }
+nav .submenu{
+    background: #fff;
+    box-shadow: 3px 10px 10px rgba(0,0,0,0.2);
+    display: none;
+}
+nav .submenu li a{
+    line-height: 50px;
+}
+nav ul li a:hover + ul, nav .submenu:hover{
+    display: block;
+}
+  /* ---FIN DEL NAVBAR---FOCUS-  */
+
+
  /*Texto e imagen areba del wave */
  .container__cover{  
      background-color: rgb(6, 149, 149);
@@ -211,6 +225,24 @@ button a {
     font-size: 15px;
     font-weight: 500;
 }
+/* ------------AQUI LAS SUCURSALES--------------------------------- */
+
+.sucur {
+    background-color: aquamarine;
+    padding: 1em;
+    overflow: hidden;
+}
+.sucursales {
+    background-color: #12a073;
+    margin: 1em;
+    padding: 1em;
+    float: left;
+    border-radius: 5%;
+    text-decoration: none;
+    list-style: none;
+    color: #e9f1ef;
+    text-align: center;
+}
 
 /*AQUI COMIENZA EL FOOTER*/
 
@@ -218,7 +250,7 @@ footer{
     width: 100%;
     padding: 50px 0px;
     font-family: 'Nunito', sans-serif;
-    background-color: var(--color-esqueleto);
+   /*  background-color: var(--color-esqueleto); */
     background-image: url("../Images/background-footer.svg");
     background-size: cover;
 
@@ -228,13 +260,15 @@ footer{
     mask-size: cover;*/
 }
 
+
 .container__footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 1200px;
+    width: 100%;
     margin: auto;
     padding-top: 100px;
+  
 }
 
 .box__footer{

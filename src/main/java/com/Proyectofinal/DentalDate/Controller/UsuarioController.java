@@ -48,12 +48,12 @@ public class UsuarioController {
 
         return "formulario";
     }
-
+//
     @RequestMapping("/formTurno")
     public String formularioRegistroTurno(Model modelo) {
 
-        return "formTurno";
-//    }
+        return "formTurno.html";
+   }
 //click en el boton guardar 
 //
     //creamos y guardamos el registro del usuario
@@ -73,50 +73,64 @@ public class UsuarioController {
             return "formulario";
         }
     }
-  // 1ro- es trarme todo del registro para mostrar {id}
-    //2do- seleccionar fecha 
-    //3ro - seleccionar el especialziacion (opcional)
+//  // 1ro- es trarme todo del registro para mostrar {id}
+//    //2do- seleccionar fecha 
+//    //3ro - seleccionar el especialziacion (opcional)
     @GetMapping("/formTurno")
 	public String guardarFomularioConTurno( ModelMap model, HttpSession session ) {
                 Usuario u = (Usuario) session.getAttribute("usuariosession"); 
-		Paciente paciente= pacienteServicio.getOne(u.getId());
-		model.put("form", u);
+//		Paciente paciente= pacienteServicio.getOne(u.getId());
+		model.put("paciente", u);
 	//need la session 
                 
-		return "redirect:";
+		return "formTurno";
 	}   
-    @PostMapping("/guardarTurno")// 
-    public String  guardar_el_formulario_con_turno(ModelMap modelo, @PathVariable String id, String fecha, Odontologo odontologo, Paciente paciente) throws Exception {
-        //quiero que me traiga todo los datos del usuario 
-        try {      //session????? 
-            turnoService.guardarTurno(fecha, odontologo, paciente);
-            modelo.addAttribute("Paciente", paciente);
+//        @GetMapping("/formTurno/{id}") //PATHVARIABLE
+//    public String formTurno(@PathVariable String id, ModelMap modelo) {
+//         try    {
+//             
+//             
+//           modelo.put("paciente", pacienteServicio.getOne(id));
+//           } catch (Exception e) {
+//               System.out.println(e);
+//        }
+//        return "formTurno";
+//    }
 
+        
+        
+    @PostMapping("/guardarTurno")
+    public String  guardar_el_formulario_con_turno(ModelMap modelo,  String fecha, Odontologo odontologo, Paciente paciente) throws Exception {
+        //Guardame el turno
+        try {      
+            turnoService.guardarTurno(fecha, odontologo, paciente);
+           
+              
             return "redirect:"; // si no aca agregamos un html
         } catch (Exception ex) {
             modelo.put("Error", "vuelva a intentarlo");
             return "formTurno";
         }
     }     
-    
-    
- 
-//    ----------------------------------------OPCION 1-------------------------------------
-//    	@GetMapping("/guardar-turno/{id}")
-//	public String guardarFomularioTurno(@PathVariable String id, Model model) {
-//		Paciente paciente= new Paciente();
-//		Optional<Paciente> optionalPaciente=pacienteServicio.getOne(id);
-//		producto= optionalPaciente.get();
-//		
-//		LOGGER.info("Producto buscado: {}",producto);
-//		model.addAttribute("producto", producto);
-//		
-//		return "paciente/edit";
-//	}
-     //-------------------------------------------OPCION 3---------------------------------------------------------------------------------   
-
-//EDITAR
-
+//    
+//    
+// 
+////    ----------------------------------------OPCION 1-------------------------------------
+////    	@GetMapping("/guardar-turno/{id}")
+////	public String guardarFomularioTurno(@PathVariable String id, Model model) {
+////		Paciente paciente= new Paciente();
+////		Optional<Paciente> optionalPaciente=pacienteServicio.getOne(id);
+////		producto= optionalPaciente.get();
+////		
+////		LOGGER.info("Producto buscado: {}",producto);
+////		model.addAttribute("producto", producto);
+////		
+////		return "paciente/edit";
+////	}
+//     //-------------------------------------------OPCION 3---------------------------------------------------------------------------------   
+//
+////EDITAR
+//
     @GetMapping("/editar")
     public String editar(ModelMap model, HttpSession session) {
         try {
@@ -127,19 +141,19 @@ public class UsuarioController {
 
         return "editar-perfil";
     }
-
-    @PostMapping("/editar")// si el usuario deseamofificar la contraseña asi lau? estas segura? 
-    public String editarPerfil(@RequestParam String email, @RequestParam String contraseña, RedirectAttributes redirectAttributes, ModelMap model) {
-        try {
-            Usuario u = pacienteServicio.modificarUsuario(email, email, contraseña, contraseña);
-
-            //ns.registroModificacionUsuario(u, "¡Bienvenido a la app de perros! \n \n mail: "+u.getEmail()+" \n \n Usuario modificado correctamente", "Modificacion Usuario");
-            model.put("exito", "Usuario modificado con exito");
-            redirectAttributes.addFlashAttribute("exito", "Usuario modificado con exito");
-        } catch (Exception e) {
-            model.put("error", e.getMessage());
-            redirectAttributes.addFlashAttribute("error", e.getMessage());
-        }
-        return "redirect:/usuario/editar";
-    }
+//
+//    @PostMapping("/editar")// si el usuario deseamofificar la contraseña asi lau? estas segura? 
+//    public String editarPerfil(@RequestParam String email, @RequestParam String contraseña, RedirectAttributes redirectAttributes, ModelMap model) {
+//        try {
+//            Usuario u = pacienteServicio.modificarUsuario(email, email, contraseña, contraseña);
+//
+//            //ns.registroModificacionUsuario(u, "¡Bienvenido a la app de perros! \n \n mail: "+u.getEmail()+" \n \n Usuario modificado correctamente", "Modificacion Usuario");
+//            model.put("exito", "Usuario modificado con exito");
+//            redirectAttributes.addFlashAttribute("exito", "Usuario modificado con exito");
+//        } catch (Exception e) {
+//            model.put("error", e.getMessage());
+//            redirectAttributes.addFlashAttribute("error", e.getMessage());
+//        }
+//        return "redirect:/usuario/editar";
+//    }
 }

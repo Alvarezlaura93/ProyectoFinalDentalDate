@@ -8,35 +8,34 @@
   <title>Document</title>
 </head>
 <body>
+<!--    <div class="form-group">
+				<label>Nombre</label> <input th:value="${perro.nombre}" type="text" class="form-control" name="nombre" placeholder="Nombre de la mascota">
+			</div>-->
+
   <div class="container">  
-    <form  th:action="@{/formTurno}" method="post">
+    <form  th:action="@{/guardarTurno}" method="post">
       <h3>Saca tu turno</h3>
       <h4>Ingresa tus datos</h4>
+      
+        <input hidden  th:value="${paciente.id}" name="id" ><br>
+        
       <fieldset>
-        <input placeholder="Ingrese nombre" type="text"  th:text="*{nombre}" required autofocus>
+        <input placeholder="Ingrese nombre" type="text"  th:value="${paciente.nombre}" required autofocus>
       </fieldset>
       <fieldset>
-        <input placeholder="Ingrese Email" type="email" th:text="*{Email}" t required>
+        <input placeholder="Ingrese Email" type="email" th:value="${paciente.email}"  required>
       </fieldset>
      
       <fieldset>
-        <input placeholder="Ingrese DNI" type="text" th:text="*{Dni}" required>
+        <input placeholder="Ingrese DNI" type="text" th:value="${paciente.Dni}" required>
       </fieldset> 
-      <select >
-<!--     <opcion value="10:30" > 10:30</opcion>
-     <opcion value="11:30"> 11:30</opcion>-->
 
-</select>
 
-       <fieldset>
-        <input placeholder="Ingrese Especialidad" type="text"  tabindex="4" required>
-      </fieldset>
-       <fieldset>
-        <input placeholder="Ingrese Odontologo" type="text" tabindex="4" required>
-      </fieldset>
+
+ z
       <fieldset > <p>Ingrese Dia</p>
         
-        <input class="fecha" type="date" tabindex="4"   style="background-color: rgb(106, 218, 106); color: aliceblue; border-radius: 5px;"  required>
+        <input class="fecha" type="text" tabindex="4"   style="background-color: rgb(106, 218, 106); color: aliceblue; border-radius: 5px;"  required>
       </fieldset>
       <fieldset>
         <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar</button>

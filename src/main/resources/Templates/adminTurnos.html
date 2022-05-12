@@ -4,15 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenidos | Dental Date</title>
+    <title>Turnos de hoy</title>
 
-    <link rel="stylesheet" href="estilos/index.css">
+    <link rel="stylesheet" href="/adminTurnos.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
 
+    <nav class="NavDolar">
+      <h2 class="logo">Dental <span>Date</span> Admin </h2>
+        <ul class="ul">
+                 
+            <li> <a href="a" th:href="@{/admin/registroOdo}"  ></a>Registrar odontologo</li>
+            <li> <a href="a"></a> Proveedores</li>
+            <li> <a href="a"  th:href="@{/admin/adminTurnos}" ></a> Turnos de Hoy</li>
+            <li> <a href="a"></a> Pacientes</li>
+            <li> <a href="a"></a> Odontologos</li>
+            <li> <a href="a"></a> cerrar session</li>
+           
+        </ul>
+    </nav>
  
+     
+    <table class="tabla-css">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Turno</th>
+                <th>Odontologo</th>
+            </tr>
+        </thead>
+        <tbody id="data">
+        </tbody>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+<!-- 
+  <div class="hero">
+    <nav >
+        <h2 class="logo">Dental <span>Date</span>  </h2>
+
+        <ul>
+            <li><a href="#">PROVEEDORES</a></li>
+            <li><a href="#"th:href="@{/admin/Turnos}">TURNOS DE HOY</a></li>
+            <li><a href="#">PACIENTES</a></li>
+            <li><a href="#registro">REGISTRAR ODONTOLOGO</a></li>
+        </ul>
+    </nav>
+</div>
+  
 
 
         <section id="info">
@@ -40,7 +86,7 @@
              <button   >  <a  th:href="@{/login?logout} " method="POST"  > cerrar sesion </a>  </button>
         </section>
 
-
+ -->
 
 
 

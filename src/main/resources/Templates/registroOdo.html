@@ -7,27 +7,49 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Bienvenidos | Dental Date</title>
 
-            <link rel="stylesheet" href="estilos/index.css">
+            <link rel="stylesheet" href="/formOdo.css">
             <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
             
-             <!--JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
 
         </head>
         <body>
+<!--              FALTA EL NAVABR-->
 
-            <div class="hero">
+            <div class="container">  
+                <form id="contact" th:action="@{/admin/registroOdo}" method="post">
+                  <h3>Registro</h3>
+                  <h4>Registrar nuevo Odontologo o Empleado</h4>
+                  <fieldset>
+                    <input placeholder="Ingrese nombre" name="nombre" type="text" tabindex="1" required autofocus>
+                  </fieldset>
+                  <fieldset>
+                    <input placeholder="Ingrese apellido" type="text" name="apellido" tabindex="2" required autofocus>
+                  </fieldset>
+                  <fieldset>
+                    <input placeholder="Ingrese dni" type="text" name="Dni" tabindex="3" required>
+                  </fieldset>
+                  <fieldset>
+                    <input placeholder="Ingrese Email" type="email" name="email" tabindex="4" required>
+                  </fieldset>
+                  <fieldset>
+                    <input placeholder="Ingrese contraseña" type="password" name="contraseña" tabindex="5" required>
+                  </fieldset>
+                  <fieldset>
+                    <input placeholder="Ingrese especialidad" type="text" name="contraseña" tabindex="6" required>
+                  </fieldset>
+                  <fieldset>
+                    <input placeholder="Ingrese matricula " type="text" name="contraseña" tabindex="7" required>
+                  </fieldset>
+                  <fieldset>
+                      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar <a    > </a>  </button>
+                  </fieldset>
+                </form>
+               
+
+
+
+            <!-- <div class="hero">
                 <nav >
                     <h2 class="logo">Dental <span>Date</span>  </h2>
 
@@ -80,7 +102,7 @@
                     </div>
                 </form>
             </section>   
-
+ -->
 
 
         </body>
