@@ -20,20 +20,22 @@ public class PacienteService {
 
     @Autowired
     private PacienteRepositorio pacienteRepositorio;
+    
+    private UsuarioServicio usuarioservice;
 
     @Transactional
-    public Paciente GuardarUsuario(String nombre, String apellido, Long Dni, String email, String contraseña) throws Exception {
+    public Paciente GuardarPaciente(String nombre, String apellido, String Dni, String email, String contraseña) throws Exception {
         validator(nombre, apellido, Dni, email, contraseña);
         Paciente p = new Paciente();
         BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
         p.setNombre(nombre);
-        p.getApellido();
+        p.setApellido(apellido);
+//        Paciente p = (Paciente) usuarioservice.crearUsuario(nombre, apellido, email, contraseña, Role.USER);
         p.setDni(Dni);
         p.setEmail(email);
-        p.setContraseña(contraseña);
+        p.setContraseña(enc.encode(contraseña));
         p.setRole(Role.USER);
-
-        return p;
+        return pacienteRepositorio.save(p);
     }
 
     //modifica la contraseña del usuario
@@ -66,11 +68,13 @@ public class PacienteService {
     }
     
     public List<Paciente>listaPaciente(){
+        
+        
         return pacienteRepositorio.findAll();
-    }
+    }   
 
     // valida los datos del usuario
-    public void validator(String nombre, String apellido, Long Dni, String email, String contraseña) throws Exception {
+    public void validator(String nombre, String apellido, String Dni, String email, String contraseña) throws Exception {
 
         if (nombre == null || nombre.isEmpty()) {
             throw new Exception("debe ingresar su nombre");

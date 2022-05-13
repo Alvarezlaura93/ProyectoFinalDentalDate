@@ -21,19 +21,19 @@ public class TurnoService  {
     @Autowired
     private TurnoRepositorio turno;
     
-    public Turno guardarTurno( Date fecha, Odontologo odontologo, Paciente paciente){
+    public Turno guardarTurno( String fecha, Paciente paciente){
         Turno t = new Turno();
         t.setPaciente(paciente);
         t.setFecha(fecha);
-        t.setOdontologo(odontologo);
+        
         
         return turno.save(t);
     }
  
-    public Turno ModificarTurno( String id, Date fecha, Odontologo odontologo, Paciente paciente){
-        Turno t = turno.getOne(id);
+    public Turno ModificarTurno( String id, String fecha, Paciente paciente){
+        Turno t = turno.getOne(id); //porue subralladooo
         t.setFecha(fecha);
-        t.setOdontologo(odontologo);
+      
         t.setPaciente(paciente);
         
         return turno.save(t);
@@ -43,14 +43,21 @@ public class TurnoService  {
         turno.deleteById(id);
     }
     
-    public List<Turno>ListarTurnos(){
-        return turno.findAll();
-    }
+//    public List<Turno>ListarTurnos(String fecha){
+//        
+//        return  (List<Turno>) turno.listarFecha(fecha);
+//    }
     
-    public void Validar(Date fecha) throws Exception{
-        if(fecha==null|| fecha.before(fecha)){
+        public List<Turno>listaTurno(){
+        
+        
+        return turno.findAll();
+    }   
+    
+    public void Validar(String fecha) throws Exception{
+       // if(fecha==null|| fecha.before(fecha)){
             throw new Exception("debe ingresar una fecha posterior");
-        }
+        
     }
 
 }

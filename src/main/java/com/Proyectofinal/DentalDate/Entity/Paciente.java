@@ -15,23 +15,25 @@ public class Paciente extends Usuario {
 
     
  
-    private Long Dni;
+    private String Dni;
  
     
     @OneToOne
     private Odontologo odontologo;
    
-    
+    @OneToOne
+    private Turno turno;
+
 
     public Paciente() {
         super();
     }
 
-    public Paciente(String nombre, String apellido, Long Dni, String email, String contraseña, Odontologo odontologo, Role role) {
+    public Paciente(String nombre, String apellido, String Dni, String email, String contraseña, Odontologo odontologo,Turno turno, Role role) {
         super(nombre, apellido ,email,contraseña, role);
         this.Dni = Dni;
         this.odontologo = odontologo;
-      
+      this.turno = turno;
     }
 
     public String getId() {
@@ -43,11 +45,11 @@ public class Paciente extends Usuario {
     }
 
 
-    public Long getDni() {
+    public String getDni() {
         return Dni;
     }
 
-    public void setDni(Long Dni) {
+    public void setDni(String Dni) {
         this.Dni = Dni;
     }
 
@@ -60,5 +62,12 @@ public class Paciente extends Usuario {
         this.odontologo = odontologo;
     }
 
-    
+        public Turno getTurno() {
+        return turno;
+    }
+
+    public void setTurno(Turno turno) {
+        this.turno = turno;
+    }
 }
+

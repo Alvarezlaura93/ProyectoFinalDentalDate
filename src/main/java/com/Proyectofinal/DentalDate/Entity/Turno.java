@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -23,12 +24,12 @@ public class Turno {
     private String id;
     
      //trabajar con dias
-    private Date fecha;
-    private String hora;
+   
+    private String fecha;
+    //private String hora;
     //private String hora; "12:30"
     
-    @ManyToOne
-    private Odontologo odontologo;
+
     
     @OneToOne
     private Paciente paciente;
@@ -36,9 +37,9 @@ public class Turno {
     public Turno() {
     }
 
-    public Turno(Date fecha, Odontologo odontologo, Paciente paciente) {
+    public Turno(String fecha,  Paciente paciente) {
         this.fecha = fecha;
-        this.odontologo = odontologo;
+      
         this.paciente = paciente;
     }
 
@@ -50,31 +51,25 @@ public class Turno {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
+//    public String getHora() {
+//        return hora;
+//    }
+//
+//    public void setHora(String hora) {
+//        this.hora = hora;
+//    }
     
     
 
-    public Odontologo getOdontologo() {
-        return odontologo;
-    }
-
-    public void setOdontologo(Odontologo odontologo) {
-        this.odontologo = odontologo;
-    }
+ 
 
     public Paciente getPaciente() {
         return paciente;
@@ -84,10 +79,7 @@ public class Turno {
         this.paciente = paciente;
     }
 
-    @Override
-    public String toString() {
-        return "Turno{" + "id=" + id + ", fecha=" + fecha + ", odontologo=" + odontologo + ", paciente=" + paciente + '}';
-    }
+
 
    
     

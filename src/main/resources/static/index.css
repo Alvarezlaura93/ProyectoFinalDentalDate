@@ -19,8 +19,8 @@ nav{
     align-items: center;
     justify-content: space-between;
     padding-top: 40px;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 10px;
+    padding-right: 10px;
     font-family: 'Poppins', sans-serif;
 
 }
@@ -32,7 +32,7 @@ nav{
 
 span{
     color: #FEBA0B;
-    
+    /*---------------NAVBAR ------------------*/
 
 }
 nav ul li {
@@ -52,6 +52,31 @@ nav ul li a:hover{
 
 transition: 0.3s;
 }
+/*.menu a{
+    display: block;
+    padding: 0px 5px;
+    text-decoration: none;
+    color: #6d6d6d;
+    transition: all 500ms ease;
+}*/
+.menu a:hover{
+    background: #cc673b;
+    color: #fff;
+}
+nav .submenu{
+    background: #fff;
+    box-shadow: 3px 7px 7px rgba(0,0,0,0.2);
+    display: none;
+}
+nav .submenu li a{
+    line-height: 50px;
+}
+nav ul li a:hover + ul, nav .submenu:hover{
+    display: block;
+}
+  /* ---FIN DEL NAVBAR---FOCUS-  */
+
+
  /*Texto e imagen areba del wave */
  .container__cover{  
      background-color: rgb(6, 149, 149);
@@ -94,8 +119,11 @@ transition: 0.3s;
     color: #fff;
 }
  /*botones registrate y turno*/
-.cover input[type="button"]{
-    padding: 10px 40px;
+.cover button [type="button"]{
+  
+}
+button{
+      padding: 10px 40px;
     margin-top: 40px;
     font-size: 18px;
     font-weight: 600;
@@ -106,6 +134,9 @@ transition: 0.3s;
     box-shadow: 1px 1px 30px -5px #20202049;
     cursor: pointer;
     transition: box-shadow 500ms;
+}
+button a {
+    color: white;
 }
 
 .cover input[type="button"]:hover{
@@ -205,6 +236,24 @@ transition: 0.3s;
     font-size: 15px;
     font-weight: 500;
 }
+/* ------------AQUI LAS SUCURSALES--------------------------------- */
+
+.sucur {
+    background-color: aquamarine;
+    padding: 1em;
+    overflow: hidden;
+}
+.sucursales {
+    background-color: #12a073;
+    margin: 1em;
+    padding: 1em;
+    float: left;
+    border-radius: 5%;
+    text-decoration: none;
+    list-style: none;
+    color: #e9f1ef;
+    text-align: center;
+}
 
 /*AQUI COMIENZA EL FOOTER*/
 
@@ -212,7 +261,7 @@ footer{
     width: 100%;
     padding: 50px 0px;
     font-family: 'Nunito', sans-serif;
-    background-color: var(--color-esqueleto);
+   /*  background-color: var(--color-esqueleto); */
     background-image: url("../Images/background-footer.svg");
     background-size: cover;
 
@@ -222,13 +271,15 @@ footer{
     mask-size: cover;*/
 }
 
+
 .container__footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 1200px;
+    width: 100%;
     margin: auto;
     padding-top: 100px;
+  
 }
 
 .box__footer{
