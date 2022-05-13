@@ -78,32 +78,36 @@ public class UsuarioController {
 //    //3ro - seleccionar el especialziacion (opcional)
     @GetMapping("/formTurno")
 	public String guardarFomularioConTurno( ModelMap model, HttpSession session ) {
+            try{
+            
                 Usuario u = (Usuario) session.getAttribute("usuariosession"); 
 //		Paciente paciente= pacienteServicio.getOne(u.getId());
 		model.put("paciente", u);
 	//need la session 
                 
 		return "formTurno";
-	}   
+	}   catch (Exception e) {
+              System.out.println(e);
+       }
+       return "formTurno"; //creo un html y css re
+   }
 //        @GetMapping("/formTurno/{id}") //PATHVARIABLE
 //    public String formTurno(@PathVariable String id, ModelMap modelo) {
 //         try    {
 //             
 //             
 //           modelo.put("paciente", pacienteServicio.getOne(id));
-//           } catch (Exception e) {
-//               System.out.println(e);
+//             System.out.println(e);
 //        }
-//        return "formTurno";
-//    }
+//        return "formTurno";     } 
 
         
         
     @PostMapping("/guardarTurno")
-    public String  guardar_el_formulario_con_turno(ModelMap modelo,  String fecha, Odontologo odontologo, Paciente paciente) throws Exception {
+    public String  guardar_el_formulario_con_turno(ModelMap modelo,  String fecha, Paciente paciente) throws Exception {
         //Guardame el turno
         try {      
-            turnoService.guardarTurno(fecha, odontologo, paciente);
+            turnoService.guardarTurno(fecha,  paciente);
            
               
             return "redirect:"; // si no aca agregamos un html

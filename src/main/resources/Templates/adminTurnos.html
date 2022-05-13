@@ -1,46 +1,165 @@
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="http://www.thymeleaf.org" >
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turnos de hoy</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Turnos de hoy</title>
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+        <link rel="stylesheet" href="/adminTurnos.css">
+        <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="/adminTurnos.css">
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
 
-</head>
-<body>
+        <nav class="NavDolar">
+            <h2 class="logo">Dental <span>Date</span> Admin </h2>
+            <ul class="ul">
 
-    <nav class="NavDolar">
-      <h2 class="logo">Dental <span>Date</span> Admin </h2>
-        <ul class="ul">
-                 
-            <li> <a href="a" th:href="@{/admin/registroOdo}"  ></a>Registrar odontologo</li>
-            <li> <a href="a"></a> Proveedores</li>
-            <li> <a href="a"  th:href="@{/admin/adminTurnos}" ></a> Turnos de Hoy</li>
-            <li> <a href="a"></a> Pacientes</li>
-            <li> <a href="a"></a> Odontologos</li>
-            <li> <a href="a"></a> cerrar session</li>
-           
-        </ul>
-    </nav>
+                <li> <a href="#" th:href="@{/admin/registroOdo}"  >Registrar odontologo</a></li>
+                <li> <a href="a"></a> Proveedores</li>
+                <li> <a href="#"  th:href="@{/admin/adminTurnos}" >Turnos de Hoy</a> </li>
+                <li> <a href="a">Pacientes</a> </li>
+                <li> <a href="a">Odontologos</a> </li>
+                <li> <a href="a">Cerrar session</a> </li>
+
+            </ul>
+        </nav>
+
+
+        <!--    <style>
+              body{
+                background-color:skyblue;
+                color:black;
+                text-align:center;
+                font-family:"Arial";
+              }
+              table, td{
+                border: 2px solid purple;
+                border-collapse:collapse;
+                padding:25px 50px 25px;
+              }
+              tr.heading{
+               border: 1px solid purple; 
+               background-color:yellow;
+              }
+              
+              tr.headingtwo{
+               border: 1px solid purple; 
+               background-color:violet;
+              }
+              tr:nth-child(even) {
+                background-color:white;
+              }
+              p{
+                border: 2px solid purple;
+                margin:25px 50px 75px 100px;
+              }
+              
+            </style>
+          </head>
+              <body>
+                <h1> <u>CSS Table</u> </h1>
+                  <h2>HOBBIES </h2>
+                <Table>
+                  <tr class="heading"> 
+                    <td> Nombre</td>
+                    <td> Apellido</td>
+                    <td> Hobbies</td>
+                    <td> Food</td>
+                    <td> Movies</td>
+                  </tr>
+                  
+                    <tr class="headingtwo"> 
+                    <td> Basketball</td>
+                    <td> Italy</td>
+                    <td> Reading</td>
+                    <td> Apple</td>
+                      <td> Little Women</td>
+                  </tr>
+                  <tr class="headingtwo" > 
+                    <td> Tennis</td>
+                    <td> Denmark</td>
+                    <td> Spinning</td>
+                    <td> Avocado</td>
+                    <td> Lady Bird</td>
+                  </tr>
+                  <tr class="headingtwo"> 
+                    <td> Cyclying</td>
+                    <td> Ireland</td>
+                    <td> Baking</td>
+                    <td> Sparkling water</td>
+                    <td> Rushmore </td>
+                  </tr>
+                  </table>
+                <br><br>-->
+
+
+
+
+
+
+        <!--    -----OPCION 2---- FALLIDA
+            <div class = "container text-center">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                  <th scope="col">Turno</th>
+                                <th scope="col">Odontologo </th>
+                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="pacientes : ${listaPacientes}" >
+                                
+                                <td th:text="${paciente.nombre}"></td>
+                                <td th:text="${producto.apellido}"></td>
+                                <td th:text="${producto.turno}"></td>
+                        
+                                
+                                <td> 
+                                    <a class="btn btn-primary " th:href="@{'/editar/' + ${producto.id}">Editar </a>
+                                </td>
+                                
+                            </tr>
+                     
+                        </tbody>
+                    </table>
+                </div>-->
+
+
+
+
+
+
+        <!--  -------------opcion1--------FALLIDA--------------   -->
+
+        <table class="tabla-css">
+            
+
+            <thead   >
+            <tbody   th:each="paciente:${listaPacientes} "  >
+                  <p hiden th:each="turno:${listaTurnos} "   >
+                <tr >
+
+                    <th  th:text="${paciente.nombre} ">  </th>
+                    <th   th:text="${paciente.apellido} " ></th>
+                    <th   th:text="${paciente.Dni} " ></th>
+                    <th   th:text="${turno.fecha} " ></th>
+         
+                 </tr>
+            </tbody>
+
+       
+
+
  
-     
-    <table class="tabla-css">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Turno</th>
-                <th>Odontologo</th>
-            </tr>
-        </thead>
-        <tbody id="data">
-        </tbody>
-    </table>
 
-    <script src="app.js"></script>
+
+
+<script src="app.js"></script>
 </body>
 </html>
 
@@ -86,12 +205,12 @@
              <button   >  <a  th:href="@{/login?logout} " method="POST"  > cerrar sesion </a>  </button>
         </section>
 
- -->
+-->
 
 
 
 
 
-
+<!--
 </body>
-</html>
+</html>-->

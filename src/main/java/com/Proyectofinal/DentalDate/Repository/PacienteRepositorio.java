@@ -7,6 +7,7 @@
 package com.Proyectofinal.DentalDate.Repository;
 
 import com.Proyectofinal.DentalDate.Entity.Paciente;
+import com.Proyectofinal.DentalDate.Entity.Turno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -19,8 +20,8 @@ public interface PacienteRepositorio extends JpaRepository<Paciente, String>{
     @Query("SELECT l FROM Paciente l WHERE l.Dni = :Dni")
     public Paciente buscarPorDni(@Param("Dni") String Dni);
     
-    @Query("SELECT l FROM Paciente l WHERE l.apellido = :apellido")
-    public Paciente buscarPorApellido(@Param("apellido") String apellido);
+    @Query("SELECT l FROM Paciente l WHERE l.turno = :turno ")
+    public Paciente buscarPorTurno(@Param("turno") Turno turno);
 
     @Query("SELECT l FROM Paciente l WHERE l.id = :id")
     public Paciente buscarPorid(@Param ("id") String id);

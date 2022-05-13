@@ -68,8 +68,10 @@ public class PacienteService {
     }
     
     public List<Paciente>listaPaciente(){
+        
+        
         return pacienteRepositorio.findAll();
-    }
+    }   
 
     // valida los datos del usuario
     public void validator(String nombre, String apellido, String Dni, String email, String contraseña) throws Exception {

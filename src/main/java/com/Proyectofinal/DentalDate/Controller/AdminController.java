@@ -9,6 +9,7 @@ import com.Proyectofinal.DentalDate.Entity.Odontologo;
 import com.Proyectofinal.DentalDate.Entity.Paciente;
 import com.Proyectofinal.DentalDate.Entity.Turno;
 import com.Proyectofinal.DentalDate.Entity.Usuario;
+import com.Proyectofinal.DentalDate.Repository.TurnoRepositorio;
 import com.Proyectofinal.DentalDate.Service.OdontologoService;
 import com.Proyectofinal.DentalDate.Service.PacienteService;
 import com.Proyectofinal.DentalDate.Service.TurnoService;
@@ -41,7 +42,10 @@ public class AdminController {
 
     @Autowired
     private UsuarioServicio us;
-
+    
+    @Autowired
+  private TurnoRepositorio tr;
+    
 //    @GetMapping("/")
 //    public String dashboard(ModelMap model) {
 //        model.put("usuarios", us.findAll());
@@ -57,23 +61,24 @@ public class AdminController {
     
     
     @GetMapping("/adminTurnos")
-    public String listarPacientes(ModelMap modelo) {
+    public String listarPacientes(ModelMap modelo ) {
 
 //        List<Odontologo> odontologo = odontologoService.listaOdontologo();
 //        modelo.put("listaOdontologos", odontologo);
 //
-//        List<Paciente> listapacientes = pacienteService.listaPaciente();
-//        modelo.put("listaPacientes", listapacientes);
+   List<Paciente> listapacientes = pacienteService.listaPaciente();
+     modelo.put("listaPacientes", listapacientes);
 //        
 //        
-//        List<Turno> listaturnos = TurnoService.ListarTurnos();
-//        modelo.put("listaTurnos", listaturnos);
+      List<Turno> listaturnos = TurnoService.listaTurno();
+      modelo.put("listaTurnos", listaturnos);
 //        
         
 
         return "adminTurnos";
     }
     
+
     
     
     

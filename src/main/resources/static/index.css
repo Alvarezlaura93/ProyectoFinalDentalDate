@@ -19,8 +19,8 @@ nav{
     align-items: center;
     justify-content: space-between;
     padding-top: 40px;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 10px;
+    padding-right: 10px;
     font-family: 'Poppins', sans-serif;
 
 }
@@ -32,7 +32,7 @@ nav{
 
 span{
     color: #FEBA0B;
-    
+    /*---------------NAVBAR ------------------*/
 
 }
 nav ul li {
@@ -52,9 +52,20 @@ nav ul li a:hover{
 
 transition: 0.3s;
 }
+/*.menu a{
+    display: block;
+    padding: 0px 5px;
+    text-decoration: none;
+    color: #6d6d6d;
+    transition: all 500ms ease;
+}*/
+.menu a:hover{
+    background: #cc673b;
+    color: #fff;
+}
 nav .submenu{
     background: #fff;
-    box-shadow: 3px 10px 10px rgba(0,0,0,0.2);
+    box-shadow: 3px 7px 7px rgba(0,0,0,0.2);
     display: none;
 }
 nav .submenu li a{
