@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" ></html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
+ >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+   
+
 
 </head>
 <body>
@@ -19,8 +21,8 @@
                     <h2 class="logo">Dental <span>Date</span>  </h2>
                      
                     <ul>
-                        <li><a href="#" class="select" th:href="@{/formTurno}">TURNO</a></li>
-                        <li><a href="#sucursales">SUCURSALES</a></li>
+                        <li sec:authorize="isAuthenticated()"><a href="#" class="select" th:href="@{/formTurno}">TURNO</a></li>
+                        <li><a href="#lugar">SUCURSALES</a></li>
                      
                         <li><a href="#">CONTACTO</a></li>
                         <li><a href="#" th:href="@{/trabaja}">TRABAJA CON NOSOTROS</a></li>
@@ -29,7 +31,7 @@
                                 <li><a th:href="@{/admin/adminTurnos}">
                                     Admin
                                 </a></li>
-                                <li><a th:href="@{/logyou}">
+                                <li><a th:href="@{/logout}">
                                     Cerrar Session
                                 </a></li>
                               
@@ -71,7 +73,7 @@
 
         <!-- NO TOCAR ÉSTE CÓDIGO...> AQUÍ TE DEJO EL TUTORIAL PARA QUE HAGAS ESTE CÓDIGO:
         https://youtu.be/0V1Bs5nV6uo -->
-        <section>
+        <section id="lugar">
             <div class="container__cards">
                 <div class="card">
                     <div class="cover__card">
