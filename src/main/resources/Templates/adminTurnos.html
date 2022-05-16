@@ -17,11 +17,13 @@
             <ul class="ul">
 
                 <li> <a href="#" th:href="@{/admin/registroOdo}"  >Registrar odontologo</a></li>
-                <li> <a href="a"></a> Proveedores</li>
                 <li> <a href="#"  th:href="@{/admin/adminTurnos}" >Turnos de Hoy</a> </li>
+                <li> <a href="a" th:href="@{/admin/listarPacientes}"  >Pacientes</a> </li>
+                <li> <a href="a"   th:href="@{/admin/listarOdontologos}" >Odontologos</a> </li>
                 <li> <a href="a">Pacientes</a> </li>
                 <li> <a href="a">Odontologos</a> </li>
-                <li> <a href="a">Cerrar session</a> </li>
+                <li> <a href="a" th:href="@{/logout}">Cerrar sesion</a> </li>
+
 
             </ul>
         </nav>
@@ -136,8 +138,18 @@
 
         <!--  -------------opcion1--------FALLIDA--------------   -->
 
+
         <table class="tabla-css">
-            
+             <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>apellido</th>
+                        <th>Dni</th>
+                        <th>Fecha</th>
+                      
+                      
+                    </tr>
+                </thead>
 
             <thead   >
             <tbody   th:each="paciente:${listaPacientes} "  >

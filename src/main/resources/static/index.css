@@ -22,6 +22,9 @@ nav{
     padding-left: 10px;
     padding-right: 10px;
     font-family: 'Poppins', sans-serif;
+    z-index:2 ;
+    width: 100%;
+   
 
 }
 .logo {
@@ -39,7 +42,8 @@ nav ul li {
     list-style-type: none;
     display: inline-block;
     padding: 10px 20px;
-    
+    z-index: 2;
+   
 }
 nav ul li a{
 color: white;
@@ -52,32 +56,44 @@ nav ul li a:hover{
 
 transition: 0.3s;
 }
-/*.menu a{
+.menu a{
     display: block;
-    padding: 0px 5px;
+    padding: 0px 20px;
     text-decoration: none;
-    color: #6d6d6d;
+   
     transition: all 500ms ease;
-}*/
+    z-index: 2;
+   
+}
 .menu a:hover{
-    background: #cc673b;
+    background: #09a16c;
     color: #fff;
+    border-radius: 30%;
 }
-nav .submenu{
+.menu .submenu{
     background: #fff;
-    box-shadow: 3px 7px 7px rgba(0,0,0,0.2);
+    box-shadow: 3px 10px 10px rgba(0,0,0,0.2);
     display: none;
+    position: absolute;
+    
+    z-index: 4;
 }
-nav .submenu li a{
+.menu .submenu li a{
     line-height: 50px;
+    float: none;
+
 }
-nav ul li a:hover + ul, nav .submenu:hover{
+.menu ul li a:hover + ul, .menu .submenu:hover{
     display: block;
+    z-index: 2;
 }
   /* ---FIN DEL NAVBAR---FOCUS-  */
 
 
  /*Texto e imagen areba del wave */
+ /* .container__cover{ 
+    z-index: 1;
+    } */
  .container__cover{  
      background-color: rgb(6, 149, 149);
     max-width: 100%;
@@ -86,7 +102,7 @@ nav ul li a:hover + ul, nav .submenu:hover{
     display: flex;
     justify-content: space-between;
     position: relative;
-
+   
     *background-image: url(../images/background-cover.svg);
     background-size: cover;
     background-position: bottom;
@@ -96,7 +112,7 @@ nav ul li a:hover + ul, nav .submenu:hover{
 .cover .container__info{
     max-width: 400px;
     margin-top: 40px;
-    z-index: 2;
+  
     font-family: 'Poppins', sans-serif;
 }
  /*DENTAL*/
@@ -145,13 +161,18 @@ button a {
 
 .container__vector{
     position: relative;
+    
+    
 }
  /*La imagen */
 .container__vector img{
     position: absolute;
     bottom: 10px;
-    right: 0px;
-    width: 600px;
+    right: 400px;
+    top: 20px;
+    width: 450px;
+    border-radius: 60%;
+   
     transition: all 300ms;
     animation: move_vector 6s ease-in-out infinite;
 }
@@ -339,11 +360,11 @@ footer{
     background-color: #7a7a7a;
 }
 
-/* .container_all{
-    position: relative;
+.container_all{
+    position: relative ;
     right: 0;
-    transition: all 300ms;
-} */
+    
+}
 
 
 /* .header{
