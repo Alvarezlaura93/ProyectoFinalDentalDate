@@ -64,11 +64,11 @@ public class UsuarioController {
     @PostMapping("/guardarRegistro")
     public String guardar_el_formulario(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String Dni, @RequestParam String email, @RequestParam String contraseña) throws Exception {
 
-//        try { //si no agrego em metodo guartadrTurno dentro de guardarPaciente
+        try { //si no agrego em metodo guartadrTurno dentro de guardarPaciente
 
             Paciente GuardarUsuario = pacienteServicio.GuardarPaciente(nombre, apellido, Dni, email, contraseña);
             modelo.put("Exito", "Guardado con exito");
-<<<<<<< HEAD
+
            
             //modelo.put("Bienvenide", GuardarUsuario );
             return "index"; // si no aca agregamos un html
@@ -78,16 +78,15 @@ public class UsuarioController {
             
             return "formulario";
         }
-=======
+    }
 
-            return "index"; // si no aca agregamos un html
+//            return "index"; // si no aca agregamos un html
 //        } catch (Exception ex) {
 //            ex.printStackTrace();
 //            modelo.put("Error", "vuelva a intentarlo");
 //            return "formulario";
 //        }
->>>>>>> 950acce45b6bb9e04a351a2a145361ba13fa3823
-    }
+    
 //  // 1ro- es trarme todo del registro para mostrar {id}
 //    //2do- seleccionar fecha 
 //    //3ro - seleccionar el especialziacion (opcional)
