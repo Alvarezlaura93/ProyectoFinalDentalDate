@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" ></html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
+ >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +9,18 @@
 
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
     
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
       
+=======
+   
+
+
+>>>>>>> 950acce45b6bb9e04a351a2a145361ba13fa3823
 </head>
 <body>
 
@@ -24,17 +30,17 @@
                     <h2 class="logo">Dental <span class=" animate__animated  animate__fadeInLeft" >Date</span>  </h2>
                      
                     <ul>
-                        <li><a href="#" class="select" th:href="@{/formTurno}">TURNO</a></li>
-                        <li><a href="#sucursales">SUCURSALES</a></li>
+                        <li sec:authorize="isAuthenticated()"><a href="#" class="select" th:href="@{/formTurno}">TURNO</a></li>
+                        <li><a href="#lugar">SUCURSALES</a></li>
                      
                         <li><a href="#">CONTACTO</a></li>
-                        <li><a href="#">TRABAJA CON NOSOTROS</a></li>
+                        <li><a href="#" th:href="@{/trabaja}">TRABAJA CON NOSOTROS</a></li>
                         <li><a href="#">Usuario <i class="icon-abajo2"></i></a>
                             <ul class="submenu">
                                 <li><a th:href="@{/admin/adminTurnos}">
                                     Admin
                                 </a></li>
-                                <li><a th:href="@{/logyou}">
+                                <li><a th:href="@{/logout}">
                                     Cerrar Session
                                 </a></li>
                               
@@ -76,7 +82,11 @@
 
         <!-- NO TOCAR ÉSTE CÓDIGO...> AQUÍ TE DEJO EL TUTORIAL PARA QUE HAGAS ESTE CÓDIGO:
         https://youtu.be/0V1Bs5nV6uo -->
+<<<<<<< HEAD
         <section class=" animate__animated  animate__fadeInRightBig">
+=======
+        <section id="lugar">
+>>>>>>> 950acce45b6bb9e04a351a2a145361ba13fa3823
             <div class="container__cards">
                 <div class="card">
                     <div class="cover__card">

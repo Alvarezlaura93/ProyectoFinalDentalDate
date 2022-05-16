@@ -44,7 +44,7 @@ public class MainController {
         return "sucursales";
     }
 
-    @RequestMapping("/trabajaconnostros")
+    @RequestMapping("/trabaja")
     public String subirCV(Model modelo) {
 
         return "cv";

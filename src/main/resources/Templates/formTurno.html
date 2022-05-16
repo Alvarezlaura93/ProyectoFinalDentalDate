@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/turno.css">
-  <title>Document</title>
-</head>
-<body>
-<!--    <div class="form-group">
-				<label>Nombre</label> <input th:value="${perro.nombre}" type="text" class="form-control" name="nombre" placeholder="Nombre de la mascota">
-			</div>-->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/turno.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <!--    <div class="form-group">
+                                        <label>Nombre</label> <input th:value="${perro.nombre}" type="text" class="form-control" name="nombre" placeholder="Nombre de la mascota">
+                                </div>-->
 
-  <div class="container">  
-    <form  th:action="@{/guardarTurno}" method="post">
-      <h3>Saca tu turno</h3>
-      <h4>Ingresa tus datos</h4>
-      
-        <input hidden  th:value="${paciente.id}" name="id" ><br>
-        
-      <fieldset>
-        <input placeholder="Ingrese nombre" type="text"  th:value="${paciente.nombre}" required autofocus>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Ingrese Email" type="email" th:value="${paciente.email}"  required>
-      </fieldset>
-     
-      <fieldset>
-        <input placeholder="Ingrese DNI" type="text" th:value="${paciente.Dni}" required>
-      </fieldset> 
+        <div class="container">  
+            <div class="caja contact-wrapper" >
+                <form  th:action="@{/guardarTurno}" method="post">
+                    <h1 class="contact h3">Saca tu turno</h1>
+                    <h2>Ingresa tus datos</h2>
+
+                    <input hidden  th:value="${paciente.id}" name="id" ><br>
+
+                    <fieldset>
+                        <input placeholder="Ingrese nombre" type="text"  th:value="${paciente.nombre}" required autofocus>
+                    </fieldset>
+                    <fieldset>
+                        <input placeholder="Ingrese Email" type="email" th:value="${paciente.email}"  required>
+                    </fieldset>
+
+                    <fieldset>
+                        <input placeholder="Ingrese DNI" type="text" th:value="${paciente.Dni}" required>
+                    </fieldset> 
+                    
+                    <fieldset > 
+                        
+                    <h2>Ingrese Dia</h2>
+
+                    </fieldset>
+                    <!--<input hidden  th:value="${turno.id}" name="id" ><br>-->
+                    <select name="fecha" id="color">
+                        <option value="Martes 17 de mayo 15hs">Martes 17 de mayo 15hs </option>
+                        <option value="Martes 17 de mayo 15:30hs"> Martes 17 de mayo 15:30hs</option>
+                        <option value="Martes 17 de mayo 16hs"> Martes 17 de mayo 16hs</option>
+                        <option value="Martes 17 de mayo 16:30hs">Martes 17 de mayo 16:30hs</option>
+                        <option value="Martes 17 de mayo 17hs">Martes 17 de mayo 17hs</option>
+                        <option value="Martes 17 de mayo 17:30hs">Martes 17 de mayo 17:30hs</option>
+                        <option value="Miercoles 18 de mayo 15hs">Miercoles 18 de mayo 15hs</option>
+                        <option value="Miercoles 18 de mayo 15:30hs">Miercoles 18 de mayo 15:30hs</option>
+                        <option value="Miercoles 18 de mayo 16hs">Miercoles 18 de mayo 16:30hs</option>
+                        <option value="Miercoles 18 de mayo 16:30hs">Miercoles 18 de mayo 16:30hs</option>
+                        <option value="Miercoles 18 de mayo 17hs">Miercoles 18 de mayo 17hs</option>
+                        <!--<input class="fecha" type="text" tabindex="4"  name ="fecha"  style="background-color: rgb(106, 218, 106); color: aliceblue; border-radius: 5px;"  required>-->
+                    </select>
+                    <fieldset>
+                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Confirmar Turno</button>
+                    </fieldset>
+                </form>
 
 
-
- 
-      <fieldset > <p>Ingrese Dia</p>
-      
- </fieldset>
-   <!--<input hidden  th:value="${turno.id}" name="id" ><br>-->
-<select name="fecha" id="color">
-  <option value="Lunes 15 de mayo 15hs">Lunes 15 de mayo 15hs </option>
-  <option value="Martes  16 de mayo 12.30hs ">Martes  16 de mayo</option>
-  <option value="Miercoles 18 de mayo 17hs">Miercoles 18 de mayo 17hs</option>
-  <option value="Miercoles 18 de mayo 17hs">Miercoles 18 de mayo 17hs</option>
-  <option value="Miercoles 18 de mayo 17hs">Miercoles 18 de mayo 17hs</option>
-  <option value="Miercoles 18 de mayo 17hs">Miercoles 18 de mayo 17hs</option>
-  <option value="Miercoles 18 de mayo 17hs">Miercoles 18 de mayo 17hs</option>
-  <option value="Miercoles 18 de mayo 17hs">Miercoles 18 de mayo 17hs</option>
-  <option value="Miercoles 18 de mayo 17hs">Miercoles 18 de mayo 17hs</option>
-
-        <!--<input class="fecha" type="text" tabindex="4"  name ="fecha"  style="background-color: rgb(106, 218, 106); color: aliceblue; border-radius: 5px;"  required>-->
-        </select>
-      <fieldset>
-        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar</button>
-      </fieldset>
-    </form>
-   
-    
-  </div>
-</body>
+            </div>
+    </body>
 </html>
 
 
 
-  
