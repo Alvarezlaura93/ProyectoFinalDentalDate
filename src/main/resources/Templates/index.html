@@ -9,14 +9,19 @@
 
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-
+    
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+      
 </head>
 <body>
 
 
    <div class="hero">
                 <nav class="menu" >
-                    <h2 class="logo">Dental <span>Date</span>  </h2>
+                    <h2 class="logo">Dental <span class=" animate__animated  animate__fadeInLeft" >Date</span>  </h2>
                      
                     <ul>
                         <li><a href="#" class="select" th:href="@{/formTurno}">TURNO</a></li>
@@ -39,28 +44,28 @@
                 </nav>
      </div>
 
-   
+   </header>
     <div class="container_all" id="container__all">
         <div class="cover">
 
             <!--INICIO WAVE-->
 
-                <div class="bg_color"></div>
-                <div class="wave w1"></div>
-                <div class="wave w2"></div>
 
             <!--FINAL WAVE-->
 
             <div class="container__cover">
+             
                 <div class="container__info">
-                    <h1>DENTAL</h1>
-                    <h2>DATE</h2>
+                    <h1 class=" animate__animated animate__backInLeft" >DENTAL</h1>
+                    <h2 class=" animate__animated animate__bounceInDown" >DATE</h2>
                     <p>si sos paciente inicia sesion</p> 
-                      <button   >  <a  th:href="@{/login}"   >  Iniciar sesion </a>  </button>
+                      <button  >  <a  th:href="@{/login}"   >  Iniciar sesion </a>  </button>
                     <button   >  <a  th:href="@{/formulario} "   >  Registrate </a>  </button>
                 </div>
-                <div class="container__vector">
-                    <img src=" " alt="">
+                <div class=" animate__animated  animate__fadeInRightBig">
+                  <div    class="container__vector" >
+                    <img  src="https://www.dentistaschimalhuacan.com.mx/extra-images/slide-3.jpg" alt="">
+                  </div>
                 </div>
             </div>
         </div>
@@ -71,7 +76,7 @@
 
         <!-- NO TOCAR ÉSTE CÓDIGO...> AQUÍ TE DEJO EL TUTORIAL PARA QUE HAGAS ESTE CÓDIGO:
         https://youtu.be/0V1Bs5nV6uo -->
-        <section>
+        <section class=" animate__animated  animate__fadeInRightBig">
             <div class="container__cards">
                 <div class="card">
                     <div class="cover__card">
@@ -114,6 +119,8 @@
                     </div>
                 </div>
             </div>
+
+
   <section class="sucur">
             <ol >
                 <ol class="sucursales">

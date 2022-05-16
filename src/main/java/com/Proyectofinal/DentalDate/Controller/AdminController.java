@@ -42,10 +42,10 @@ public class AdminController {
 
     @Autowired
     private UsuarioServicio us;
-    
+
     @Autowired
-  private TurnoRepositorio tr;
-    
+    private TurnoRepositorio tr;
+
 //    @GetMapping("/")
 //    public String dashboard(ModelMap model) {
 //        model.put("usuarios", us.findAll());
@@ -58,30 +58,23 @@ public class AdminController {
 //    public String Turnos(){
 //        return "adminTurnos";
 //    }
-    
-    
     @GetMapping("/adminTurnos")
-    public String listarPacientes(ModelMap modelo ) {
+    public String listarPacientes(ModelMap modelo) {
 
 //        List<Odontologo> odontologo = odontologoService.listaOdontologo();
 //        modelo.put("listaOdontologos", odontologo);
 //
-   List<Paciente> listapacientes = pacienteService.listaPaciente();
-     modelo.put("listaPacientes", listapacientes);
+        List<Paciente> listapacientes = pacienteService.listaPaciente();
+        modelo.put("listaPacientes", listapacientes);
 //        
 //        
-      List<Turno> listaturnos = TurnoService.listaTurno();
-      modelo.put("listaTurnos", listaturnos);
+        List<Turno> listaturnos = TurnoService.listaTurno();
+        modelo.put("listaTurnos", listaturnos);
 //        
-        
 
         return "adminTurnos";
     }
-    
 
-    
-    
-    
     @RequestMapping("/registroOdo") //crear botton para redirecionar al formulario
     public String formulario(ModelMap modelo) {
 
@@ -92,7 +85,7 @@ public class AdminController {
     public String guardar(ModelMap modelo, String nombre, String apellido, String email, String contraseña, String Matricula, String especialidad) {
 
         try {
-            
+
             Odontologo o = odontologoService.GuardarOdontologo(nombre, apellido, email, contraseña, Matricula, especialidad);
             //ns.registroModificacionPerro(p, u, "Bienvenido a la app de perros \n \n mail: " + u.getEmail() + " su perro fue cargado correctamente"
             //        + "\n \n Perro: " + p.getNombre() + "\n Apodo: " + p.getApodo() + "\n Raza: " + p.getRaza(), "Registro Perro");
@@ -102,7 +95,7 @@ public class AdminController {
 
         } catch (Exception e) {
             System.out.println(e);
-           e.printStackTrace();
+            e.printStackTrace();
             modelo.put("error", "Falto algun dato");
             return "registroOdo";
         }
@@ -159,5 +152,21 @@ public class AdminController {
         return "redirect:/usuario/editar";
     }
 
-    //CANCELAR TURNO
+    //-------------LISTAMOS PACIENTES CON SU INFO EN ESCENARIO LISTARPACIENTES
+    @GetMapping("/listarPacientes")
+    public String listaDePacientes(ModelMap modelo) {
+
+        List<Paciente> listapacientes = pacienteService.listaPaciente();
+        modelo.put("listaPacientes", listapacientes);
+        return "listarPacientes";
+    }
+
+    //LISTAMOS ODONTOLOGOS EN ESCENARIO DE ODONTOLOGOS
+    @GetMapping("/listarOdontologos")
+    public String listaDeOdontologos(ModelMap modelo) {
+        List<Odontologo> odontologo = odontologoService.listaOdontologo();
+        modelo.put("listaOdontologos", odontologo);
+        return "listarOdo";
+    }
+
 }

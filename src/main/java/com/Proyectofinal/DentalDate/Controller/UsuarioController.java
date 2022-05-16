@@ -50,9 +50,12 @@ public class UsuarioController {
     }
 //
     @RequestMapping("/formTurno")
-    public String formularioRegistroTurno(Model modelo) {
-
-        return "formTurno.html";
+    public String formularioRegistroTurno(ModelMap modelo) {
+   
+           return "formTurno";
+      
+        
+    
    }
 //click en el boton guardar 
 //
@@ -65,11 +68,13 @@ public class UsuarioController {
 
             Paciente GuardarUsuario = pacienteServicio.GuardarPaciente(nombre, apellido, Dni, email, contraseña);
             modelo.put("Exito", "Guardado con exito");
-
-            return "redirect:"; // si no aca agregamos un html
+           
+            //modelo.put("Bienvenide", GuardarUsuario );
+            return "index"; // si no aca agregamos un html
         } catch (Exception ex) {
             ex.printStackTrace();
             modelo.put("Error", "vuelva a intentarlo");
+            
             return "formulario";
         }
     }

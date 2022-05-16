@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pacientes All</title>
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+        <link rel="stylesheet" href="/listarPacientes.css">
+        <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+        <nav class="NavDolar">
+            <h2 class="logo">Dental <span>Date</span> Admin </h2>
+            <ul class="ul">
+
+                <li> <a href="#" th:href="@{/admin/registroOdo}"  >Registrar odontologo</a></li>
+                <li> <a href="a"></a> Proveedores</li>
+                <li> <a href="#"  th:href="@{/admin/adminTurnos}" >Turnos de Hoy</a> </li>
+                <li> <a href="a">Pacientes</a> </li>
+                <li> <a href="a">Odontologos</a> </li>
+                <li> <a href="a">Cerrar session</a> </li>
+
+            </ul>
+        </nav>
+
+        <table class="tabla-css">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+
+                    <th>Dni</th>
+                    <th>Contraseña</th>
+                    <th>Email</th>
+
+                </tr>
+            </thead>
+
+            <thead   >
+            <tbody   th:each="paciente:${listaPacientes} "  >
+
+                <tr >
+
+                    <th  th:text="${paciente.nombre} ">  </th>
+                    <th   th:text="${paciente.apellido} " ></th>
+
+
+                    <th   th:text="${paciente.email} " ></th>
+                </tr>
+            </tbody>
+
+
+
+
+
+
+
+
+            <script src="app.js"></script>
+    </body>
+</html>
