@@ -6,12 +6,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/turno.css">
         <title>Document</title>
+          <link rel="stylesheet" href="index.css">
     </head>
     <body>
         <!--    <div class="form-group">
                                         <label>Nombre</label> <input th:value="${perro.nombre}" type="text" class="form-control" name="nombre" placeholder="Nombre de la mascota">
                                 </div>-->
 
+        <div class="hero">
+                <nav class="menu" >
+                    <h2 class="logo">Dental <span class=" animate__animated  animate__fadeInLeft" >Date</span>  </h2>
+                     
+                    <ul>
+                        <li sec:authorize="isAuthenticated()"><a href="#" class="select" th:href="@{/formTurno}">TURNO</a></li>
+                        <li><a href="#lugar">SUCURSALES</a></li>
+                     
+                        <li><a href="#">CONTACTO</a></li>
+                        <li><a href="#" th:href="@{/trabaja}">TRABAJA CON NOSOTROS</a></li>
+                        <li><a href="#">Usuario <i class="icon-abajo2"></i></a>
+                            <ul class="submenu">
+                                <li><a th:href="@{/admin/adminTurnos}">
+                                    Admin
+                                </a></li>
+                                <li><a th:href="@{/logout}">
+                                    Cerrar Session
+                                </a></li>
+                              
+                            </ul>
+                            </li>
+                    </ul>
+                </nav>
+     </div>
+        
         <div class="container">  
             <div class="caja contact-wrapper" >
                 <form  th:action="@{/guardarTurno}" method="post">
