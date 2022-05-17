@@ -6,11 +6,10 @@
 
 package com.Proyectofinal.DentalDate.Service;
 
-import com.Proyectofinal.DentalDate.Entity.Odontologo;
+
 import com.Proyectofinal.DentalDate.Entity.Paciente;
 import com.Proyectofinal.DentalDate.Entity.Turno;
 import com.Proyectofinal.DentalDate.Repository.TurnoRepositorio;
-import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

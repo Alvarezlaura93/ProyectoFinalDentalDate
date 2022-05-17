@@ -5,7 +5,7 @@
     padding: 0;
 }
 body {
-    background-image: url(imgg.jpg); 
+    background-image: url(https://clinicadentalmadridrio.com/wp-content/uploads/2020/10/Sin-t%C3%ADtulo-1.jpg);
     background-size: 100%;
     
 }
@@ -17,11 +17,13 @@ h2 {
     width: 100%;
     display: flex;
     align-items:center ;
-    background-color: rgb(19, 160, 160);
+    background-color: rgb(22, 167, 167);
     padding: 25px;
     color:white;
     font-weight: bold;
     transition: all 0.5s ease ;   
+    font-family: 'Poppins', sans-serif;
+    
 }
 .NavDolar ul li {
     list-style: none;
@@ -33,7 +35,11 @@ h2 {
 
 }
 
-
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 
 .tabla-css {
     margin-left: auto;
@@ -47,7 +53,7 @@ h2 {
 }
 .tabla-css thead tr {
     background-color: #94aad1;
-    background-color: #2965aa;
+    background-color: #29a8aa;
     color:#e8eaec;
     text-align: center;
     font-size: 20px;
@@ -63,10 +69,11 @@ h2 {
 .fondo {
     position: absolute;
 }
-.navbar {
-    background-color: #336d94;
+.nav {
+    background-color: #dbe3e9;
     padding-top: 20px; 
     font-size: 40px;
+   
 
 }
 .logo {
@@ -79,4 +86,23 @@ span{
     color: #FEBA0B;
     
 
+}
+.btn {
+background-color: rgb(22, 167, 167);
+      position: relative;
+  display: inline-block;
+  margin: 5px;
+  padding-left: 10px;
+ 
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 15px;
+  
+  border: 0;
+  border-radius: 0.4rem;
+  box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.4);
+  appearance: none;
+  cursor: pointer;
+  transition: background 250ms, box-shadow 250ms;
 }

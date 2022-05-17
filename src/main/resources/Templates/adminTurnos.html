@@ -18,11 +18,12 @@
 
                 <li> <a href="#" th:href="@{/admin/registroOdo}"  >Registrar odontologo</a></li>
                 <li> <a href="#"  th:href="@{/admin/adminTurnos}" >Turnos de Hoy</a> </li>
+
                 <li> <a href="a" th:href="@{/admin/listarPacientes}"  >Pacientes</a> </li>
                 <li> <a href="a"   th:href="@{/admin/listarOdontologos}" >Odontologos</a> </li>
-                <li> <a href="a">Pacientes</a> </li>
-                <li> <a href="a">Odontologos</a> </li>
-                <li> <a href="a" th:href="@{/logout}">Cerrar sesion</a> </li>
+                <li> <a href="a" th:href="@{/logout}">Cerrar session</a> </li>
+
+             
 
 
             </ul>
@@ -161,6 +162,8 @@
                     <th   th:text="${paciente.Dni} " ></th>
                     <th   th:text="${turno.fecha} " ></th>
          
+                   <th class="btn">  <a  >Editar </a>    </th>
+                     <th class="btn">  <a  >Eliminar </a>    </th>
                  </tr>
             </tbody>
 

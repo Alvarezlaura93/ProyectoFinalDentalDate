@@ -1,3 +1,84 @@
 .loginb{
     background: rgb(19, 160, 160);
 }
+.hero{
+height: 100%;
+width: 100%;
+background-color: rgb(19, 160, 160);
+
+background-size:cover ;
+background-position: center;
+}
+nav{
+    display :flex ;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    z-index:2 ;
+    width: 100%;
+   
+
+}
+.logo {
+    color : white; 
+    font-size: 28px;
+    
+}
+
+span{
+    color: #FEBA0B;
+    /*---------------NAVBAR ------------------*/
+
+}
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+    z-index: 2;
+   
+}
+nav ul li a{
+color: white;
+text-decoration: none;
+font-weight: bold;
+
+}
+nav ul li a:hover{ 
+    color: #FEBA0B;
+
+transition: 0.3s;
+}
+.menu a{
+    display: block;
+    padding: 0px 20px;
+    text-decoration: none;
+   
+    transition: all 500ms ease;
+    z-index: 2;
+   
+}
+.menu a:hover{
+    background: #09a16c;
+    color: #fff;
+    border-radius: 30%;
+}
+.menu .submenu{
+    background: #fff;
+    box-shadow: 3px 10px 10px rgba(0,0,0,0.2);
+    display: none;
+    position: absolute;
+    
+    z-index: 4;
+}
+.menu .submenu li a{
+    line-height: 50px;
+    float: none;
+
+}
+.menu ul li a:hover + ul, .menu .submenu:hover{
+    display: block;
+    z-index: 2;
+}

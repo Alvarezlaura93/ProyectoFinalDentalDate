@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
 	margin:0;
@@ -21,6 +21,88 @@ body {
 	color:#777;
 	background:rgb(19, 160, 160);
 }
+/*--------------------------------------------navbar-----------*/
+.hero{
+height: 100%;
+width: 100%;
+background-color: rgb(19, 160, 160);
+
+background-size:cover ;
+background-position: center;
+}
+nav{
+    display :flex ;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    z-index:2 ;
+    width: 100%;
+   
+
+}
+.logo {
+    color : white; 
+    font-size: 28px;
+    
+}
+
+span{
+    color: #FEBA0B;
+    /*---------------NAVBAR ------------------*/
+
+}
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+    z-index: 2;
+   
+}
+nav ul li a{
+color: white;
+text-decoration: none;
+font-weight: bold;
+
+}
+nav ul li a:hover{ 
+    color: #FEBA0B;
+
+transition: 0.3s;
+}
+.menu a{
+    display: block;
+    padding: 0px 20px;
+    text-decoration: none;
+   
+    transition: all 500ms ease;
+    z-index: 2;
+   
+}
+.menu a:hover{
+    background: #09a16c;
+    color: #fff;
+    border-radius: 30%;
+}
+.menu .submenu{
+    background: #fff;
+    box-shadow: 3px 10px 10px rgba(0,0,0,0.2);
+    display: none;
+    position: absolute;
+    
+    z-index: 4;
+}
+.menu .submenu li a{
+    line-height: 50px;
+    float: none;
+
+}
+.menu ul li a:hover + ul, .menu .submenu:hover{
+    display: block;
+    z-index: 2;
+}
 
 .container {
 	max-width:400px;
@@ -29,7 +111,7 @@ body {
 	position:relative;
               
 }
-
+/*-------------------------------FIN DE NAVBAR----------*/
 #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
 
 #contact {
@@ -116,3 +198,31 @@ fieldset {
 :-ms-input-placeholder {
  color:#888;
 }
+/*.NavDolar {
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+    align-items:center ;
+    background-color: rgb(22, 167, 167);
+    padding: 25px;
+    color:white;
+    font-weight: bold;
+    transition: all 0.5s ease ;   
+    font-family: 'Poppins', sans-serif;
+    
+}
+.NavDolar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}*/

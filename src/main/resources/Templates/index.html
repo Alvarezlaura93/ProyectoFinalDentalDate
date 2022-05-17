@@ -9,12 +9,14 @@
 
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
     
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
- 
+      
+
 </head>
 <body>
 
@@ -29,7 +31,7 @@
                      
                         <li><a href="#">CONTACTO</a></li>
                         <li><a href="#" th:href="@{/trabaja}">TRABAJA CON NOSOTROS</a></li>
-                        <li><a href="#">Usuario <i class="icon-abajo2"></i></a>
+                        <li sec:authorize="isAuthenticated()"><a href="#">Usuario <i class="icon-abajo2"></i></a>
                             <ul class="submenu">
                                 <li><a th:href="@{/admin/adminTurnos}">
                                     Admin
@@ -58,7 +60,7 @@
                 <div class="container__info">
                     <h1 class=" animate__animated animate__backInLeft" >DENTAL</h1>
                     <h2 class=" animate__animated animate__bounceInDown" >DATE</h2>
-                    <p>si sos paciente inicia sesion</p> 
+                    <p>Si desea obtener un turno inicie sesion, si no posee una cuenta,haga clic en registrate</p> 
                       <button  >  <a  th:href="@{/login}"   >  Iniciar sesion </a>  </button>
                     <button   >  <a  th:href="@{/formulario} "   >  Registrate </a>  </button>
                 </div>
@@ -71,12 +73,7 @@
         </div>
 
 
-
-        
-
-        <!-- NO TOCAR ÉSTE CÓDIGO...> AQUÍ TE DEJO EL TUTORIAL PARA QUE HAGAS ESTE CÓDIGO:
-        https://youtu.be/0V1Bs5nV6uo -->
-
+   
         <section class=" animate__animated  animate__fadeInRightBig">
 
         <section id="lugar">

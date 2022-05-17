@@ -78,15 +78,16 @@ public class UsuarioController {
             
             return "formulario";
         }
-    }
 
-//            return "index"; // si no aca agregamos un html
+
+          //  return "index"; // si no aca agregamos un html
 //        } catch (Exception ex) {
 //            ex.printStackTrace();
 //            modelo.put("Error", "vuelva a intentarlo");
 //            return "formulario";
 //        }
-    
+
+    }
 //  // 1ro- es trarme todo del registro para mostrar {id}
 //    //2do- seleccionar fecha 
 //    //3ro - seleccionar el especialziacion (opcional)
