@@ -21,10 +21,6 @@ body {
 	color:#777;
 	background:rgb(19, 160, 160);
 }
-.hero{
-height: 100%;
-width: 100%;
-background-color: rgb(19, 160, 160);
 
 background-size:cover ;
 background-position: center;
@@ -109,8 +105,6 @@ transition: 0.3s;
 	width:100%;
 	margin:0 auto;
 	position:relative;
-
-        
 
 }
 
@@ -214,31 +208,3 @@ fieldset {
 .contact-wrapper {
  box-shadow: 0 0 15px 10px black;
 }
-/*.NavDolar {
-    justify-content: space-between;
-    width: 100%;
-    display: flex;
-    align-items:center ;
-    background-color: rgb(22, 167, 167);
-    padding: 25px;
-    color:white;
-    font-weight: bold;
-    transition: all 0.5s ease ;   
-    font-family: 'Poppins', sans-serif;
-    
-}
-.NavDolar ul li {
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 22px;
-
-}
-
-nav ul li a{
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}*/

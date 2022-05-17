@@ -17,14 +17,10 @@
             <ul class="ul">
 
                 <li> <a href="#" th:href="@{/admin/registroOdo}"  >Registrar odontologo</a></li>
-                <li> <a href="#"  th:href="@{/admin/adminTurnos}" >Turnos de Hoy</a> </li>
-
+                <li> <a href="#" th:href="@{/admin/adminTurnos}" >Turnos </a> </li>
                 <li> <a href="a" th:href="@{/admin/listarPacientes}"  >Pacientes</a> </li>
-                <li> <a href="a"   th:href="@{/admin/listarOdontologos}" >Odontologos</a> </li>
+                <li> <a href="a" th:href="@{/admin/listarOdontologos}" >Odontologos</a> </li>
                 <li> <a href="a" th:href="@{/logout}">Cerrar session</a> </li>
-
-             
-
 
             </ul>
         </nav>
@@ -141,38 +137,38 @@
 
 
         <table class="tabla-css">
-             <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>apellido</th>
-                        <th>Dni</th>
-                        <th>Fecha</th>
-                      
-                      
-                    </tr>
-                </thead>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>apellido</th>
+                    <th>Dni</th>
+                    <th>Fecha</th>
+
+
+                </tr>
+            </thead>
 
             <thead   >
             <tbody   th:each="paciente:${listaPacientes} "  >
-                  <p hiden th:each="turno:${listaTurnos} "   >
-                <tr >
+            <p hiden th:each="turno:${listaTurnos} "   >
+            <tr >
 
-                    <th  th:text="${paciente.nombre} ">  </th>
-                    <th   th:text="${paciente.apellido} " ></th>
-                    <th   th:text="${paciente.Dni} " ></th>
-                    <th   th:text="${turno.fecha} " ></th>
-         
-                 </tr>
-            </tbody>
+                <th  th:text="${paciente.nombre} ">  </th>
+                <th   th:text="${paciente.apellido} " ></th>
+                <th   th:text="${paciente.Dni} " ></th>
+                <th   th:text="${turno.fecha} " ></th>
 
-       
-
-
- 
+            </tr>
+        </tbody>
 
 
 
-<script src="app.js"></script>
+
+
+
+
+
+        <script src="app.js"></script>
 </body>
 </html>
 
