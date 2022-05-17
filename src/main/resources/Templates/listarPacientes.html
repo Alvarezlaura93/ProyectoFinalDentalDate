@@ -12,16 +12,19 @@
     </head>
     <body>
        
-        <nav class="NavDolar">
+      <nav class="NavDolar">
             <h2 class="logo">Dental <span>Date</span> Admin </h2>
             <ul class="ul">
 
                 <li> <a href="#" th:href="@{/admin/registroOdo}"  >Registrar odontologo</a></li>
-                <li> <a href="a"></a> Proveedores</li>
-                <li> <a href="#"th:href="@{/admin/adminTurnos}" >Turnos de Hoy</a> </li>
-                <li> <a href="a">Pacientes</a> </li>
-                <li> <a href="a">Odontologos</a> </li>
-                <li> <a href="#" th:href="@{/logout}"> Cerrar sesion</a> </li>
+                <li> <a href="#" th:href="@{/admin/adminTurnos}" >Turnos de Hoy</a> </li>
+
+                <li> <a href="a" th:href="@{/admin/listarPacientes}"  >Pacientes</a> </li>
+                <li> <a href="a" th:href="@{/admin/listarOdontologos}" >Odontologos</a> </li>
+                <li> <a href="a" th:href="@{/logout}">Cerrar session</a> </li>
+
+             
+
 
             </ul>
         </nav>
@@ -32,10 +35,10 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
-
-                    <th>Dni</th>
-                    <th>Contraseña</th>
                     <th>Email</th>
+                    <th>Dni</th>
+                    <th>Control</th>
+                    
 
                 </tr>
             </thead>
@@ -47,9 +50,11 @@
 
                     <th  th:text="${paciente.nombre} ">  </th>
                     <th   th:text="${paciente.apellido} " ></th>
-
-
-                    <th   th:text="${paciente.email} " ></th>
+                   <th   th:text="${paciente.email} " ></th>
+                    <th   th:text="${paciente.Dni} " ></th>
+                     <th class="btn">  <a  >Editar </a>    </th>
+                     <th class="btn">  <a th:href="@{/admin/eliminar} "  >Eliminar </a>    </th>
+               
                 </tr>
             </tbody>
 

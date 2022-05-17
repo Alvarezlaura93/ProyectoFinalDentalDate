@@ -87,3 +87,22 @@ span{
     
 
 }
+.btn {
+background-color: rgb(22, 167, 167);
+      position: relative;
+  display: inline-block;
+  margin: 5px;
+  padding-left: 10px;
+ 
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 15px;
+  
+  border: 0;
+  border-radius: 0.4rem;
+  box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.4);
+  appearance: none;
+  cursor: pointer;
+  transition: background 250ms, box-shadow 250ms;
+}

@@ -82,11 +82,11 @@ public class AdminController {
     }
 
     @PostMapping("/registroOdo") //formulario-ondontolog-por-creado-ADMIN-
-    public String guardar(ModelMap modelo, String nombre, String apellido, String email, String contraseña, String Matricula, String especialidad) {
+    public String guardar(ModelMap modelo, String nombre, String apellido, String email, String contraseña, String matricula, String especialidad) {
 
         try {
 
-            Odontologo o = odontologoService.GuardarOdontologo(nombre, apellido, email, contraseña, Matricula, especialidad);
+            Odontologo o = odontologoService.GuardarOdontologo(nombre, apellido, email, contraseña, matricula, especialidad);
             //ns.registroModificacionPerro(p, u, "Bienvenido a la app de perros \n \n mail: " + u.getEmail() + " su perro fue cargado correctamente"
             //        + "\n \n Perro: " + p.getNombre() + "\n Apodo: " + p.getApodo() + "\n Raza: " + p.getRaza(), "Registro Perro");
             modelo.put("exito", "Registro exitoso");

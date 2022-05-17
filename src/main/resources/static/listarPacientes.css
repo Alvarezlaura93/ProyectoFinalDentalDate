@@ -5,7 +5,7 @@
     padding: 0;
 }
 body {
-    background-image: url(/img/dentaldate.jpg);
+    background-image: url(https://clinicadentalmadridrio.com/wp-content/uploads/2020/10/Sin-t%C3%ADtulo-1.jpg);
     background-size: 100%;
     
 }
@@ -50,6 +50,7 @@ nav ul li a{
     border-collapse: collapse;
     position: relative;
     backdrop-filter: blur(30px);
+     font-family: 'Poppins', sans-serif;
 }
 .tabla-css thead tr {
     background-color: #94aad1;
@@ -62,6 +63,7 @@ nav ul li a{
 .tabla-css td {
     padding: 20px 20px;
     text-align: center;
+     font-family: 'Poppins', sans-serif;
 }
 .tabla-css tbody tr:nth-of-type(even){
  background-color: #0845a02c;   
@@ -86,4 +88,23 @@ span{
     color: #FEBA0B;
     
 
+}
+.btn {
+background-color: rgb(22, 167, 167);
+      position: relative;
+  display: inline-block;
+  margin: 5px;
+  padding-left: 10px;
+ 
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 15px;
+  
+  border: 0;
+  border-radius: 0.4rem;
+  box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.4);
+  appearance: none;
+  cursor: pointer;
+  transition: background 250ms, box-shadow 250ms;
 }
