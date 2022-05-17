@@ -6,9 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="form-styles.css">
-  <title>Document</title>
+  <title>Formulario</title>
 </head>
 <body>
+    <div class="hero">
+                <nav class="menu" >
+                    <h2 class="logo">Dental <span class=" animate__animated  animate__fadeInLeft" >Date</span>  </h2>
+                     
+                    <ul>
+                        <li sec:authorize="isAuthenticated()"><a href="#" class="select" th:href="@{/formTurno}">TURNO</a></li>
+                        <li><a href="#lugar">SUCURSALES</a></li>
+                     
+                        <li><a href="#">CONTACTO</a></li>
+                        <li><a href="#" th:href="@{/trabaja}">TRABAJA CON NOSOTROS</a></li>
+                        <li><a href="#">Usuario <i class="icon-abajo2"></i></a>
+                            <ul class="submenu">
+                                <li><a th:href="@{/admin/adminTurnos}">
+                                    Admin
+                                </a></li>
+                                <li><a th:href="@{/logout}">
+                                    Cerrar Session
+                                </a></li>
+                              
+                            </ul>
+                            </li>
+                    </ul>
+                </nav>
+     </div>
+    
   <div class="container">  
     <form id="contact" th:action="@{/guardarRegistro}" method="post">
       <h3>Registrate</h3>

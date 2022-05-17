@@ -5,7 +5,7 @@
     padding: 0;
 }
 body {
-    background-image: url(imgg.jpg); 
+    background-image: url(/img/dentaldate.jpg);
     background-size: 100%;
     
 }
@@ -17,23 +17,29 @@ h2 {
     width: 100%;
     display: flex;
     align-items:center ;
-    background-color: rgb(24, 69, 136);
+    background-color: rgb(22, 167, 167);
     padding: 25px;
-    color: #fff;
+    color:white;
     font-weight: bold;
     transition: all 0.5s ease ;   
+    font-family: 'Poppins', sans-serif;
+    
 }
 .NavDolar ul li {
     list-style: none;
     display: inline-block;
     margin: 0 20px;
-    color: #eaeaea;
+    color: white;
     text-decoration: none;
     font-size: 22px;
 
 }
 
-
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 
 .tabla-css {
     margin-left: auto;
@@ -47,7 +53,7 @@ h2 {
 }
 .tabla-css thead tr {
     background-color: #94aad1;
-    background-color: #2965aa;
+    background-color: #29a8aa;
     color:#e8eaec;
     text-align: center;
     font-size: 20px;
@@ -63,10 +69,11 @@ h2 {
 .fondo {
     position: absolute;
 }
-.navbar {
-    background-color: #336d94;
+.nav {
+    background-color: #dbe3e9;
     padding-top: 20px; 
     font-size: 40px;
+   
 
 }
 .logo {

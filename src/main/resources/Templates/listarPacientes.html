@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pacientes All</title>
         <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
-        <link rel="stylesheet" href="/listarPacientes.css">
+        <link rel="stylesheet" href="/listarPacientes.css ">
         <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
-
+       
         <nav class="NavDolar">
             <h2 class="logo">Dental <span>Date</span> Admin </h2>
             <ul class="ul">
@@ -21,12 +21,13 @@
                 <li> <a href="#"th:href="@{/admin/adminTurnos}" >Turnos de Hoy</a> </li>
                 <li> <a href="a">Pacientes</a> </li>
                 <li> <a href="a">Odontologos</a> </li>
-                <li> <a href="a">Cerrar session</a> </li>
+                <li> <a href="#" th:href="@{/logout}"> Cerrar sesion</a> </li>
 
             </ul>
         </nav>
 
         <table class="tabla-css">
+            
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -38,7 +39,7 @@
 
                 </tr>
             </thead>
-
+ 
             <thead   >
             <tbody   th:each="paciente:${listaPacientes} "  >
 

@@ -172,7 +172,7 @@ button a {
     top: 20px;
     width: 450px;
     border-radius: 60%;
-   
+    float: left; 
     transition: all 300ms;
     animation: move_vector 6s ease-in-out infinite;
 }
@@ -202,6 +202,7 @@ button a {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     transition: all 300ms;
+     font-family: 'Poppins', sans-serif;
 }
 
 .card:hover{
@@ -263,8 +264,10 @@ button a {
     background-color: aquamarine;
     padding: 1em;
     overflow: hidden;
+    
 }
 .sucursales {
+     width: 400px;
     background-color: #12a073;
     margin: 1em;
     padding: 1em;
@@ -274,6 +277,10 @@ button a {
     list-style: none;
     color: #e9f1ef;
     text-align: center;
+     font-family: 'Poppins', sans-serif;
+}
+iframe{
+     width: 360px;
 }
 
 /*AQUI COMIENZA EL FOOTER*/
