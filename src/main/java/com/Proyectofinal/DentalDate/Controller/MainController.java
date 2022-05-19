@@ -20,7 +20,6 @@ public class MainController {
     public String index(@RequestParam(required = false) String login, ModelMap model) {
         if (login != null) {
             model.put("exito", "Logueado con exito");
-
         }
 
         return "index";
@@ -28,13 +27,18 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, ModelMap model) {
+    public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout,@RequestParam(required = false) String exito, ModelMap model) {
         if (error != null) {
             model.put("error", "Usuario o Contraseña incorrectos");
         }
         if (logout != null) {
             model.put("logout", "Desconectado correctamente");
         }
+        
+        if (exito!= null){
+            model.put("exito","logueado correctamente");
+        }
+            
         return "login";
     }
 

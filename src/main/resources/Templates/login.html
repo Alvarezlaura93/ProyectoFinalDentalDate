@@ -41,12 +41,15 @@
                     </form>
                     <div class="col-12 forgot">
                         <a href="#">Recordar contrasena?</a>
+                        <div  th:if="${param.exito}" class="alert alert-success" role="alert">
+                            ¡Logueado con exito!</div>
+                    </div>
                     </div>
                     <div th:if="${param.error}" class="alert alert-danger" role="alert">
-                        Usuario invalido!
+                        ¡Usuario invalido!
                     </div>
                     <div th:if="${param.logout}" class="alert alert-success" role="alert">
-                        se ha cerrado inicion correctamente!
+                        ¡se ha cerrado sesion correctamente!
                     </div>
                 </div>
             </div>

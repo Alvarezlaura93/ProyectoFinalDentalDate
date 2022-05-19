@@ -31,9 +31,9 @@
                      
                         <li><a href="#">CONTACTO</a></li>
                         <li><a href="#" th:href="@{/trabaja}">TRABAJA CON NOSOTROS</a></li>
-                        <li sec:authorize="isAuthenticated()"><a href="#">Usuario <i class="icon-abajo2"></i></a>
+                        <li sec:authorize="isAuthenticated()" ><a href="#">Usuario <i class="icon-abajo2"></i></a>
                             <ul class="submenu">
-                                <li><a th:href="@{/admin/adminTurnos}">
+                                <li sec:authorize="hasAnyRole('ROLE_ADMIN')"> <a th:href="@{/admin/adminTurnos}">
                                     Admin
                                 </a></li>
                                 <li><a th:href="@{/logout}">
@@ -141,7 +141,7 @@
                 </ol>
 
                 <ol class="sucursales">
-                    <li class="zona">Sucursa CABA</li>
+                    <li class="zona">SUCURSAL CABA</li>
                     <li>Dirección: Av. Juan Bautista Alberdi 439, C1424BYE CABA</li>
                     <li>Teléfono: 011 4959-0550</li>
                     <li>Provincia: Provincia de Buenos Aires</li>

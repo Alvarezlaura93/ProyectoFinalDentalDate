@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.Proyectofinal.DentalDate.Controller;
 
 import com.Proyectofinal.DentalDate.Entity.Odontologo;
@@ -157,7 +152,7 @@ public class AdminController {
     public String listaDePacientes(ModelMap modelo) {
 
         List<Paciente> listapacientes = pacienteService.listaPaciente();
-        modelo.put("listaPacientes", listapacientes);
+        modelo.put("listarPacientes", listapacientes);
         return "listarPacientes";
     }
 

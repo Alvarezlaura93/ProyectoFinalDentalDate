@@ -68,8 +68,6 @@ public class PacienteService {
     }
     
     public List<Paciente>listaPaciente(){
-        
-        
         return pacienteRepositorio.findAll();
     }   
 
