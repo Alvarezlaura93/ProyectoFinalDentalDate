@@ -261,13 +261,13 @@ button a {
 /* ------------AQUI LAS SUCURSALES--------------------------------- */
 
 .sucur {
-    background-color: aquamarine;
+    background-color:rgb(19, 160, 160);
     padding: 1em;
     overflow: hidden;
     
 }
 .sucursales {
-     width: 400px;
+    width: 400px;
     background-color: #12a073;
     margin: 1em;
     padding: 1em;

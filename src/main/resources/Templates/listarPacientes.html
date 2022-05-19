@@ -11,8 +11,8 @@
 
     </head>
     <body>
-       
-      <nav class="NavDolar">
+
+        <nav class="NavDolar">
             <h2 class="logo">Dental <span>Date</span> Admin </h2>
             <ul class="ul">
 
@@ -23,14 +23,14 @@
                 <li> <a href="a" th:href="@{/admin/listarOdontologos}" >Odontologos</a> </li>
                 <li> <a href="a" th:href="@{/logout}">Cerrar session</a> </li>
 
-             
+
 
 
             </ul>
         </nav>
 
         <table class="tabla-css">
-            
+
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -38,23 +38,22 @@
                     <th>Email</th>
                     <th>Dni</th>
                     <th>Control</th>
-                    
+
 
                 </tr>
             </thead>
- 
+
             <thead   >
-            <tbody   th:each="paciente:${listaPacientes} "  >
+            <tbody th:each="paciente:${listaPacientes} " >
 
                 <tr >
 
                     <th  th:text="${paciente.nombre} ">  </th>
                     <th   th:text="${paciente.apellido} " ></th>
-                   <th   th:text="${paciente.email} " ></th>
+                    <th   th:text="${paciente.email} " ></th>
                     <th   th:text="${paciente.Dni} " ></th>
-                     <th class="btn">  <a  >Editar </a>    </th>
-                     <th class="btn">  <a th:href="@{/admin/eliminar} "  >Eliminar </a>    </th>
-               
+                    <th class="btn">  <a th:href="@{/admin/eliminar} "  >Eliminar </a>    </th>
+
                 </tr>
             </tbody>
 
