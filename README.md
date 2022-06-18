@@ -8,6 +8,7 @@ Spring Security
 
 ---DOCUMENTACION---
 20/4/22 - Realizamos los diseños - Figma y Canva |
+
 21/4/22 - Index - Entidades|
 25/4/22 - Estructura de seguridad con Spring Security|
 26/4/22 - class Repositorio y class Servicio |
