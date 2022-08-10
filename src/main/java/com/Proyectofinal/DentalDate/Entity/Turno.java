@@ -22,15 +22,8 @@ public class Turno {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator( name ="uuid",strategy="uuid2")
     private String id;
-    
-     //trabajar con dias
-   
     private String fecha;
-    //private String hora;
-    //private String hora; "12:30"
-    
 
-    
     @OneToOne
     private Paciente paciente;
 
@@ -59,17 +52,6 @@ public class Turno {
         this.fecha = fecha;
     }
 
-//    public String getHora() {
-//        return hora;
-//    }
-//
-//    public void setHora(String hora) {
-//        this.hora = hora;
-//    }
-    
-    
-
- 
 
     public Paciente getPaciente() {
         return paciente;
@@ -79,13 +61,5 @@ public class Turno {
         this.paciente = paciente;
     }
 
-
-
-   
-    
-  
-    
-    
-    
     
 }
