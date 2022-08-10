@@ -36,21 +36,6 @@ private UsuarioRepositorio usuariorepositorio;
 @Autowired
 private PacienteRepositorio pr;
     
-//public Usuario crearUsuario(String nombre, String apellido, String email, String contraseña, Role role){
-//    System.out.println("hola");
-//    Usuario u= new Usuario();
-//    BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
-//    u.setNombre(nombre);
-//    u.setApellido(apellido);
-//    u.setEmail(email);
-//    u.setContraseña(enc.encode(contraseña));
-//    u.setRole(role);
-//    System.out.println(u.getNombre());
-//   return usuariorepositorio.save(u);
-//    
-//}
-//    esto no sirve para herencia por que no se guarda en las tablas correspondientes en Sql
-    
     
     @Override
      public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

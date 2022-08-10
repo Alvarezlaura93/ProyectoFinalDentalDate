@@ -43,7 +43,7 @@ public class UsuarioController {
     @Autowired
     private OdontologoService odontologoService;
 
-    //nos posicionamos en el esecenario formulario
+    //nos posicionamos en el escenario formulario
     @RequestMapping("/formulario")
     public String mostrameformularioRegistro(Model modelo) {
 
@@ -58,21 +58,17 @@ public class UsuarioController {
         
     
    }
-//click en el boton guardar 
-//
+
     //creamos y guardamos el registro del usuario
 
     @PostMapping("/guardarRegistro")
     public String guardar_el_formulario(ModelMap modelo, @RequestBody String nombre, @RequestBody String apellido, @RequestBody String Dni, @RequestParam String email, @RequestBody String contraseña) throws Exception {
 
-        try { //si no agrego em metodo guartadrTurno dentro de guardarPaciente
+        try { 
 
             Paciente GuardarUsuario = pacienteServicio.GuardarPaciente(nombre, apellido, Dni, email, contraseña);
             modelo.put("Exito", "Guardado con exito");
-
-           
-            //modelo.put("Bienvenide", GuardarUsuario );
-            return "index"; // si no aca agregamos un html
+            return "index"; 
         } catch (Exception ex) {
             ex.printStackTrace();
             modelo.put("Error", "vuelva a intentarlo");
@@ -85,26 +81,26 @@ public class UsuarioController {
             try{
             
                 Usuario u = (Usuario) session.getAttribute("usuariosession"); 
-//		Paciente paciente= pacienteServicio.getOne(u.getId());
+
 		model.put("paciente", u);
-	//need la session 
+	
                 
 		return "formTurno";
 	}   catch (Exception e) {
               System.out.println(e);
        }
-       return "formTurno"; //creo un html y css re
+       return "formTurno"; 
    }
 
         
     @PostMapping("/guardarTurno")
     public String  guardar_el_formulario_con_turno(ModelMap modelo,  String fecha, Paciente paciente) throws Exception {
-        //Guardame el turno
+       
         try {      
             turnoService.guardarTurno(fecha,  paciente);
            
               
-            return "redirect:"; // si no aca agregamos un html
+            return "redirect:"; 
         } catch (Exception ex) {
             modelo.put("Error", "vuelva a intentarlo");
             return "formTurno";

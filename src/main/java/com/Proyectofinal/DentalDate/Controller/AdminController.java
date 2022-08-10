@@ -41,31 +41,17 @@ public class AdminController {
     @Autowired
     private TurnoRepositorio tr;
 
-//    @GetMapping("/")
-//    public String dashboard(ModelMap model) {
-//        model.put("usuarios", us.findAll());
-//        return "admin-dashboard";
-//    }
-    //LISTAR
-    //QUERY PARA TRAER AMBAS COLUMNAS??? 
-    //INDEX DE FRANCO FALTA AQUI XD
-//    @RequestMapping("/admin/Turnos")
-//    public String Turnos(){
-//        return "adminTurnos";
-//    }
     @GetMapping("/adminTurnos")
     public String listarPacientes(ModelMap modelo) {
 
-//        List<Odontologo> odontologo = odontologoService.listaOdontologo();
-//        modelo.put("listaOdontologos", odontologo);
-//
+
+
         List<Paciente> listapacientes = pacienteService.listaPaciente();
         modelo.put("listaPacientes", listapacientes);
-//        
-//        
+       
         List<Turno> listaturnos = TurnoService.listaTurno();
         modelo.put("listaTurnos", listaturnos);
-//        
+       
 
         return "adminTurnos";
     }
@@ -82,8 +68,7 @@ public class AdminController {
         try {
 
             Odontologo o = odontologoService.GuardarOdontologo(nombre, apellido, email, contraseña, matricula, especialidad);
-            //ns.registroModificacionPerro(p, u, "Bienvenido a la app de perros \n \n mail: " + u.getEmail() + " su perro fue cargado correctamente"
-            //        + "\n \n Perro: " + p.getNombre() + "\n Apodo: " + p.getApodo() + "\n Raza: " + p.getRaza(), "Registro Perro");
+        
             modelo.put("exito", "Registro exitoso");
 
             return "adminTurnos";
@@ -96,7 +81,7 @@ public class AdminController {
         }
     }
 
-    /// QUE ES ESTO???? 
+    
     @GetMapping("/role/{id}")
     public String cambiarRol(ModelMap modelo, @PathVariable String id) {
         try {
@@ -132,12 +117,12 @@ public class AdminController {
         return "editar-admin";
     }
 
-    @PostMapping("/editar-admin")// si el usuario deseamofificar la contraseña asi lau? estas segura? 
+    @PostMapping("/editar-admin") 
     public String editarOdontologo(@RequestParam String email, @RequestParam String contraseña, RedirectAttributes redirectAttributes, ModelMap model) {
         try {
             Usuario u = odontologoService.modificarOdontologo(email, email, contraseña, contraseña);
 
-            //ns.registroModificacionUsuario(u, "¡Bienvenido a la app de perros! \n \n mail: "+u.getEmail()+" \n \n Usuario modificado correctamente", "Modificacion Usuario");
+           
             model.put("exito", "Usuario modificado con exito");
             redirectAttributes.addFlashAttribute("exito", "Usuario modificado con exito");
         } catch (Exception e) {

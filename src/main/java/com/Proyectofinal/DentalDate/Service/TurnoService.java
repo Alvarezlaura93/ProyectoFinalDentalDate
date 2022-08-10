@@ -41,11 +41,7 @@ public class TurnoService  {
     public void EliminarTurno(String id ){
         turno.deleteById(id);
     }
-    
-//    public List<Turno>ListarTurnos(String fecha){
-//        
-//        return  (List<Turno>) turno.listarFecha(fecha);
-//    }
+
     
         public List<Turno>listaTurno(){
         
